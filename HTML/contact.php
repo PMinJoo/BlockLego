@@ -32,24 +32,24 @@ $errorMsg   = 'Hm.. seems there is a problem, sorry!';
 ?>
 <?php
 if(
-    !isset($_POST['contact-name']) ||  
+    !isset($_POST['contact-name']) ||
 	!isset($_POST['contact-email']) ||
 	!isset($_POST['contact-phone']) ||
     empty($_POST['contact-name']) ||
     empty($_POST['contact-email']) ||
     empty($_POST['contact-phone'])
 ) {
-	
+
 	if( empty($_POST['contact-name']) && empty($_POST['contact-email']) ) {
 		$json_arr = array( "type" => "error", "msg" => $fillMsg );
-		echo json_encode( $json_arr );		
+		echo json_encode( $json_arr );
 	} else {
 
 		$fields = "";
 		if( !isset( $_POST['contact-name'] ) || empty( $_POST['contact-name'] ) ) {
 			$fields .= "Name";
 		}
-		
+
 		if( !isset( $_POST['contact-email'] ) || empty( $_POST['contact-email'] ) ) {
 			if( $fields == "" ) {
 				$fields .= "Email";
@@ -57,7 +57,7 @@ if(
 				$fields .= ", Email";
 			}
 		}
-		
+
 		if( !isset( $_POST['contact-phone'] ) || empty( $_POST['contact-phone'] ) ) {
 			if( $fields == "" ) {
 				$fields .= "Phone";
@@ -65,24 +65,24 @@ if(
 				$fields .= ", Phone";
 			}
 		}
-		
+
 		$json_arr = array( "type" => "error", "msg" => "Please fill ".$fields." fields!" );
-		echo json_encode( $json_arr );		
-	
+		echo json_encode( $json_arr );
+
 	}
 
 } else {
 
 	// Validate e-mail
 	if (!filter_var($_POST['contact-email'], FILTER_VALIDATE_EMAIL) === false) {
-		
+
 		$msg = "Name: ".$_POST['contact-name']."\r\n";
 		$msg .= "Email: ".$_POST['contact-email']."\r\n";
 		$msg .= "Phone: ".$_POST['contact-phone']."\r\n";
 		if( isset( $_POST['textarea-message'] ) && $_POST['textarea-message'] != '' ) { $msg .= "Message: ".$_POST['textarea-message']."\r\n"; }
-		
+
 		$success = @mail($mailTo, $_POST['contact-email'], $msg, 'From: ' . $_POST['contact-name'] . '<' . $_POST['contact-email'] . '>');
-		
+
 		if ($success) {
 			$json_arr = array( "type" => "success", "msg" => $successMsg );
 			echo json_encode( $json_arr );
@@ -90,10 +90,10 @@ if(
 			$json_arr = array( "type" => "error", "msg" => $errorMsg );
 			echo json_encode( $json_arr );
 		}
-		
+
 	} else {
  		$json_arr = array( "type" => "error", "msg" => "Please enter valid email address!" );
-		echo json_encode( $json_arr );	
+		echo json_encode( $json_arr );
 	}
 
 }
