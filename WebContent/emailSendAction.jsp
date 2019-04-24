@@ -29,7 +29,7 @@
 	
 	//랜덤 인증번호 생성
 	Random random = new Random();
-	int randomNum = random.nextInt(8889) + 1111; //범위 : 1111~9999
+	int randomNum = random.nextInt(9000) + 1000; //범위 : 1000~9999
 	
 	
 	// 사용자에게 보낼 메시지를 기입합니다.
