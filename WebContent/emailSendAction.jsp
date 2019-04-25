@@ -29,7 +29,7 @@
 	
 	//랜덤 인증번호 생성
 	Random random = new Random();
-	int randomNum = random.nextInt(9000) + 1000; //범위 : 1000~9999
+	int randomNum = random.nextInt(900000) + 100000; //범위 : 100000~999999
 	
 	
 	// 사용자에게 보낼 메시지를 기입합니다.
@@ -82,8 +82,14 @@
   </head>
   <script language='javascript'>
   	function submitAuthNum(){  		
-  		var send = "<%=randomNum%>";
-  		alert(send);
+  		var server = "<%=randomNum%>";
+  		var client = document.getElementsByName('authNumber')[0].value;
+  		
+  		if (server.toString() == client.toString()){
+  			alert("인증에 성공하였습니다!");
+  		} else {
+  			alert("인증에 실패하였습니다!");
+  		}
   	}
   </script>
   <body>
