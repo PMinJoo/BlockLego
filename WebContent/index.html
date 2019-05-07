@@ -30,6 +30,7 @@
 	<!-- Library - Google Font Familys -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i%7cPoppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i%7cRoboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i%7cQuestrial%7cOpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7cPT+Sans:400,400i,700,700i" rel="stylesheet">
 
+	<link rel="stylesheet" type="text/css" href="assets/revolution/css/settings.css">
 	<!-- Library -->
     <link href="assets/css/lib.css" rel="stylesheet">
 
@@ -68,7 +69,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbar">
 					<ul class="navbar-nav">
-						<li class="dropdown">
+						<li class="active dropdown">
 							<i class="ddl-switch fa fa-angle-down"></i>
 							<a class="nav-link dropdown-toggle" title="Home" href="index.html">Home</a>
 							<ul class="dropdown-menu">
@@ -111,73 +112,40 @@
 
 		<main class="site-main">
 
-			<!-- Page Content -->
-			<div class="page-content">
-
-				<!-- Page Banner -->
-				<div class="container-fluid no-left-padding no-right-padding page-banner">
-					<!-- Container -->
-					<div class="container">
-						<h3>Start BlockLego</h3>
-						<nav class="breadcrumb">
-							<a class="breadcrumb-item" href="index.html">Home</a>
-							<a class="breadcrumb-item" href="#">Join</a>
-							<span class="breadcrumb-item active">Join Us!</span>
-						</nav>
-					</div><!-- Container -->
-				</div><!-- Page Banner /- -->
-
-				<!-- Signle Project -->
-				<div class="container-fluid no-left-padding no-right-padding single-project">
-					<div class="single-content">
-						<div class="row">
-<<<<<<< HEAD
-							<h3>Dongguk University Webmail</h3>
-=======
-							<h3>Project Title</h3>
-							<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.</p>
-							<p>nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
-							<p></p>
-							<button type="button" onclick="location.href='sign-up.html'">Sign Up</button>
->>>>>>> 422808c2d2980d013c644b52ea8330e48357e8e6
+			<!-- Slider Section 2 -->
+			<div class="container-fluid no-left-padding no-right-padding slider-section-2">
+				<div id="full-slider" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img class="d-block w-100" src="assets/images/full-slide-1.jpg" alt="First slide">
+							<div class="content">
+								<h3><b>블록체인과 신원인증</b> 블록체인 기술의 장점을 신원인증 시스템에 적용</h3>
+							</div>
 						</div>
-						<form>
-							<div class="form-row">
-							  <div class="form-group col-md-3">
-							    <label for="inputName">Name</label>
-							    <input type="text" class="form-control" id="inputName" placeholder="김동국">
-							  </div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="assets/images/full-slide-2.jpg" alt="First slide">
+							<div class="content">
+								<h3><b>개인정보 관리</b> 위변조가 불가능한 블록체인의 특성을 이용한 개인정보 관리</h3>
 							</div>
-							<div class="form-row">
-							  <div class="form-group col-md-3">
-							    <label for="inputStudentNumber">Student Number</label>
-							    <input type="text" class="form-control" id="inputStudentNumber" placeholder="2019101010">
-							  </div>
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="assets/images/full-slide-3.jpg" alt="First slide">
+							<div class="content">
+								<h3><b>아이디 발급</b> 블록레고를 통해 강력한 로그인 수단 획득</h3>
 							</div>
-						  <div class="form-row">
-						    <div class="form-group col-md-6">
-						      <label for="inputEmail">DGU Webmail</label>
-						      <input type="email" class="form-control" id="userEmail" placeholder="xxxxx@dongguk.edu">
-						    </div>
-						  </div>
-							<div class="form-row">
-									<button type="button" class="btn btn-secondary">Send Email</button>
-							</div>
-							<p><p>
-							<div class="form-row">
-						    <div class="form-group col-md-6">
-						      <label for="inputNumber">Certification Number</label>
-						      <input type="text" class="form-control" id="userNumber" placeholder="인증번호를 입력하세요">
-						    </div>
-						  </div>
-							<div class="form-row">
-									<button type="submit" class="btn btn-primary">Send Mail</button>
-							</div>
-						</form>
+						</div>
 					</div>
-				</div><!-- Signle Project /- -->
-
-			</div><!-- Page Content /- -->
+					<a class="carousel-control-prev" href="#full-slider" role="button" data-slide="prev">
+						<span class="fa fa-angle-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#full-slider" role="button" data-slide="next">
+						<span class="fa fa-angle-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+				<a href="single-project.html" title="Go to Portfolio"> Go to Sign up!! <i class="fa fa-align-justify"></i></a>
+			</div><!-- Slider Section 2 /- -->
 
 		</main>
 
@@ -201,6 +169,21 @@
 	<!-- Library - Js -->
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/lib.js"></script>
+
+	<!-- REVOLUTION JS FILES -->
+	<script type="text/javascript" src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+	<script type="text/javascript" src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+
+	<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+	<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+	<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+	<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
 
 	<!-- Library - Theme JS -->
 	<script src="assets/js/functions.js"></script>
