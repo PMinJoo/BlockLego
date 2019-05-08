@@ -43,6 +43,7 @@
 
 </head>
 
+
 <body data-offset="200" data-spy="scroll" data-target=".ownavigation">
 	<!-- Loader -->
 	<div id="site-loader" class="load-complete">
@@ -131,12 +132,32 @@
 				<div class="container-fluid no-left-padding no-right-padding single-project">
 					<div class="single-content">
 						<div class="row">
-							<h3>Project Title</h3>
-							<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.</p>
-							<p>nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
-							<p></p>
-							<button type="button" onclick="location.href='sign-up.html'">Sign Up</button>
+							<h3>Dongguk University Webmail</h3>
 						</div>
+						<form method="post" action="userRegisterAction.jsp">
+							<div class="form-row">
+							  <div class="form-group col-md-3">
+							    <label for="inputName">Name</label>
+							    <input type="text" class="form-control" id="inputName" placeholder="김동국">
+							  </div>
+							</div>
+							<div class="form-row">
+							  <div class="form-group col-md-3">
+							    <label for="inputStudentNumber">Student Number</label>
+							    <input type="text" class="form-control" id="inputStudentNumber" placeholder="2019101010">
+							  </div>
+							</div>
+						  <div class="form-row">
+						    <div class="form-group col-md-6">
+						      <label for="inputEmail">DGU Webmail</label>
+						      <input type="text" class="form-control" name="userEmail" placeholder="xxxxx@dongguk.edu">
+						    </div>
+						  </div>
+							<div class="form-row">
+									<button type="submit" class="btn btn-secondary">Send Email</button>
+							</div>
+							
+						</form>
 					</div>
 				</div><!-- Signle Project /- -->
 
