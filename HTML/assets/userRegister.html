@@ -38,19 +38,7 @@
     <![endif]-->
 
 </head>
-  <script language='javascript'>
-  	function submitAuthNum(){
-  		var server = "<%=randomNum%>";
-  		var client = document.getElementsByName('authNumber')[0].value;
 
-  		if (server.toString() == client.toString()){
-  			alert("인증에 성공하였습니다. 확인 버튼을 누르면 회원가입 페이지로 이동합니다.");
-  			document.location.href="single-project2.html";
-  		} else {
-  			alert("인증에 실패하였습니다!");
-  		}
-  	}
-  </script>
 
   <body data-offset="200" data-spy="scroll" data-target=".ownavigation">
 	<!-- Loader -->
@@ -142,16 +130,16 @@
 						<div class="row">
 							<h3>Dongguk University Webmail</h3>
 						</div>
-						<form>
+						<form method="post" action="/enterAuthNum">
 							<p><p>
 							<div class="form-row">
 						    <div class="form-group col-md-6">
 						      <label for="inputNumber">Certification Number</label>
-						      <input type="text" class="form-control" name="authNumber" placeholder="������ȣ�� �Է��ϼ���">
+						      <input type="text" class="form-control" name="authNumber" placeholder="인증번호를 입력해 주세요">
 						    </div>
 						  </div>
 							<div class="form-row">
-									<button type="button" class="btn btn-primary" onclick='submitAuthNum()'>Submit</button>
+									<button type="submit" class="btn btn-primary" onclick='submitAuthNum()'>Submit</button>
 							</div>
 						</form>
 					</div>
