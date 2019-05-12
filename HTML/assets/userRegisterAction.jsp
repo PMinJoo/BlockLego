@@ -8,7 +8,7 @@
 	String userEmail = null;
 	if(request.getParameter("userEmail") != null){
 		userEmail = (String)request.getParameter("userEmail");
-		
+
 		session.setAttribute("userEmail", userEmail);
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
@@ -19,7 +19,7 @@
 	else{
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.');");
+		script.println("alert('ì´ë©”ì¼ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.');");
 		script.println("history.back();");
 		script.println("</script>");
 		script.close();

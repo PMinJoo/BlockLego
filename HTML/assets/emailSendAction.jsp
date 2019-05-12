@@ -20,26 +20,26 @@
 	if(userEmail == null){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('·Î±×ÀÎÀ» ÇØÁÖ¼¼¿ä.');");
+		script.println("alert('ë¡œê·¸ì¸ì„ í•´ì£¼ì„¸ìš”.');");
 		//script.println("location.href = 'userLogin.jsp'");
 		script.println("</script>");
 		script.close();
 		return;
 	}
-	
-	//·£´ı ÀÎÁõ¹øÈ£ »ı¼º
+
+	//ëœë¤ ì¸ì¦ë²ˆí˜¸ ìƒì„±
 	Random random = new Random();
-	int randomNum = random.nextInt(900000) + 100000; //¹üÀ§ : 100000~999999
-	
-	
-	// »ç¿ëÀÚ¿¡°Ô º¸³¾ ¸Ş½ÃÁö¸¦ ±âÀÔÇÕ´Ï´Ù.
+	int randomNum = random.nextInt(900000) + 100000; //ë²”ìœ„ : 100000~999999
+
+
+	// ì‚¬ìš©ìì—ê²Œ ë³´ë‚¼ ë©”ì‹œì§€ ê¸°ì…
 		String host = "http://localhost:8080/BlockLego/";
 		String from = "blocklego02@gmail.com";
 		String to = userEmail;
-		String subject = "BlockLego¿¡¼­ ¹ß¼ÛÇÑ ÀÌ¸ŞÀÏ È®ÀÎ ¸ŞÀÏÀÔ´Ï´Ù.";
-		String content = "È¨ÆäÀÌÁö·Î µ¹¾Æ°¡ ÀÎÁõ¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä : " + randomNum;
+		String subject = "BlockLegoì—ì„œ ë°œì†¡í•œ í™•ì¸ ë©”ì¼ì…ë‹ˆë‹¤.";
+		String content = "í™ˆí˜ì´ì§€ë¡œ ëŒì•„ê°€ ì¸ì¦ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš” : " + randomNum;
 
-		// SMTP¿¡ Á¢¼ÓÇÏ±â À§ÇÑ Á¤º¸¸¦ ±âÀÔÇÕ´Ï´Ù.
+		// SMTPì— ì ‘ì†í•˜ê¸° ìœ„í•œ ì •ë³´ë¥¼ ê¸°ì…
 		Properties p = new Properties();
 		p.put("mail.smtp.user", from);
 		p.put("mail.smtp.host", "smtp.googlemail.com");
@@ -55,7 +55,7 @@
 		    Authenticator auth = new Gmail();
 		    Session ses = Session.getInstance(p, auth);
 		    ses.setDebug(true);
-		    MimeMessage msg = new MimeMessage(ses); 
+		    MimeMessage msg = new MimeMessage(ses);
 		    msg.setSubject(subject);
 		    Address fromAddr = new InternetAddress(from);
 		    msg.setFrom(fromAddr);
@@ -67,10 +67,10 @@
 		    e.printStackTrace();
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù..');");
+			script.println("alert('ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤...');");
 			script.println("history.back();");
 			script.println("</script>");
-			script.close();		
+			script.close();
 		    return;
 		}
 %>
@@ -115,19 +115,19 @@
 
 </head>
   <script language='javascript'>
-  	function submitAuthNum(){  		
+  	function submitAuthNum(){
   		var server = "<%=randomNum%>";
   		var client = document.getElementsByName('authNumber')[0].value;
-  		
+
   		if (server.toString() == client.toString()){
-  			alert("ÀÎÁõ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù. È®ÀÎ ¹öÆ°À» ´©¸£¸é È¸¿ø°¡ÀÔ ÆäÀÌÁö·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+  			alert("ì¸ì¦ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤. í™•ì¸ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ íšŒì›ê°€ì… í˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
   			document.location.href="single-project2.html";
   		} else {
-  			alert("ÀÎÁõ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù!");
+  			alert("ì¸ì¦ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤!");
   		}
   	}
   </script>
-  
+
   <body data-offset="200" data-spy="scroll" data-target=".ownavigation">
 	<!-- Loader -->
 	<div id="site-loader" class="load-complete">
@@ -223,7 +223,7 @@
 							<div class="form-row">
 						    <div class="form-group col-md-6">
 						      <label for="inputNumber">Certification Number</label>
-						      <input type="text" class="form-control" name="authNumber" placeholder="ÀÎÁõ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä">
+						      <input type="text" class="form-control" name="authNumber" placeholder="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½">
 						    </div>
 						  </div>
 							<div class="form-row">
@@ -263,4 +263,3 @@
 
 </body>
 </html>
-
