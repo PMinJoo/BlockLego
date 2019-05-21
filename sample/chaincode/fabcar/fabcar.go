@@ -43,11 +43,13 @@ type SmartContract struct {
 }
 
 // Define the car structure, with 4 properties.  Structure tags are used by encoding/json library
-type Car struct {
-	Make   string `json:"make"`
-	Model  string `json:"model"`
-	Colour string `json:"colour"`
-	Owner  string `json:"owner"`
+
+type Identity struct {
+	Name     String 'json:"name"'
+	Phone    String 'json:"phone"'
+	Birth    String 'json:"birth"'
+	Address  String 'json:"address"'
+	Password String 'json:"password"'
 }
 
 /*
@@ -68,74 +70,61 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 	function, args := APIstub.GetFunctionAndParameters()
 	// Route to the appropriate handler function to interact with the ledger appropriately
 	if function == "queryCar" {
-		return s.queryCar(APIstub, args)
+		return s.queryId(APIstub, args)
 	} else if function == "initLedger" {
 		return s.initLedger(APIstub)
-	} else if function == "createCar" {
-		return s.createCar(APIstub, args)
-	} else if function == "queryAllCars" {
-		return s.queryAllCars(APIstub)
-	} else if function == "changeCarOwner" {
+	} else if function == "createId" {
+		return s.createId(APIstub, args)
+	} else if function == "queryAllIds" {
+		return s.queryAllIds(APIstub)
+	} else if function == "changeCarOwner" { //쓸 일 없을 것 같은데
 		return s.changeCarOwner(APIstub, args)
 	}
 
 	return shim.Error("Invalid Smart Contract function name.")
 }
 
-func (s *SmartContract) queryCar(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+//-----------------------------------------------------------------------
+func (s *SmartContract) queryId(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments. Expecting 1")
 	}
 
-	carAsBytes, _ := APIstub.GetState(args[0])
-	return shim.Success(carAsBytes)
+	idAsBytes, _ := APIstub.GetState(args[0])
+	return shim.Success(idAsBytes)
 }
 
+
+//-----------------------------------------------------------------------
 func (s *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) sc.Response {
-	cars := []Car{
-		Car{Make: "Toyota", Model: "Prius", Colour: "blue", Owner: "Tomoko"},
-		Car{Make: "Ford", Model: "Mustang", Colour: "red", Owner: "Brad"},
-		Car{Make: "Hyundai", Model: "Tucson", Colour: "green", Owner: "Jin Soo"},
-		Car{Make: "Volkswagen", Model: "Passat", Colour: "yellow", Owner: "Max"},
-		Car{Make: "Tesla", Model: "S", Colour: "black", Owner: "Adriana"},
-		Car{Make: "Peugeot", Model: "205", Colour: "purple", Owner: "Michel"},
-		Car{Make: "Chery", Model: "S22L", Colour: "white", Owner: "Aarav"},
-		Car{Make: "Fiat", Model: "Punto", Colour: "violet", Owner: "Pari"},
-		Car{Make: "Tata", Model: "Nano", Colour: "indigo", Owner: "Valeria"},
-		Car{Make: "Holden", Model: "Barina", Colour: "brown", Owner: "Shotaro"},
-	}
-
-	i := 0
-	for i < len(cars) {
-		fmt.Println("i is ", i)
-		carAsBytes, _ := json.Marshal(cars[i])
-		APIstub.PutState("CAR"+strconv.Itoa(i), carAsBytes)
-		fmt.Println("Added", cars[i])
-		i = i + 1
-	}
-
+	fmt.Println("ledger initiated")
 	return shim.Success(nil)
 }
 
-func (s *SmartContract) createCar(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
-	if len(args) != 5 {
+//-----------------------------------------------------------------------
+func (s *SmartContract) createId(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+
+	if len(args) != 6 {
 		return shim.Error("Incorrect number of arguments. Expecting 5")
 	}
 
-	var car = Car{Make: args[1], Model: args[2], Colour: args[3], Owner: args[4]}
+	var id = Identity{Name: args[1], Phone: args[2], Birth: args[3], Address: args[4], Password: args[5]}
 
-	carAsBytes, _ := json.Marshal(car)
-	APIstub.PutState(args[0], carAsBytes)
+	idAsBytes, _ := json.Marshal(id)
+	APIstub.PutState(args[0], idAsBytes)
 
 	return shim.Success(nil)
 }
 
-func (s *SmartContract) queryAllCars(APIstub shim.ChaincodeStubInterface) sc.Response {
 
-	startKey := "CAR0"
-	endKey := "CAR999"
+
+//-----------------------------------------------------------------------
+func (s *SmartContract) queryAllIds(APIstub shim.ChaincodeStubInterface) sc.Response {
+
+	startKey := "ID0" //학번을 key값으로 하고 싶었는데 그러면 전체 출력이 힘들어지네
+	endKey := "ID999"
 
 	resultsIterator, err := APIstub.GetStateByRange(startKey, endKey)
 	if err != nil {
@@ -170,12 +159,17 @@ func (s *SmartContract) queryAllCars(APIstub shim.ChaincodeStubInterface) sc.Res
 	}
 	buffer.WriteString("]")
 
-	fmt.Printf("- queryAllCars:\n%s\n", buffer.String())
+	fmt.Printf("- queryAllIds:\n%s\n", buffer.String())
 
 	return shim.Success(buffer.Bytes())
 }
 
-func (s *SmartContract) changeCarOwner(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+
+
+
+
+//-----------------------------------------------------------------------
+func (s *SmartContract) changeCarOwner(APIstub shim.ChaincodeStubInterface, args []string) sc.Response { //필요?
 
 	if len(args) != 2 {
 		return shim.Error("Incorrect number of arguments. Expecting 2")
