@@ -79,6 +79,8 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 		return s.queryAllIds(APIstub)
 	} else if function == "changeCarOwner" { //쓸 일 없을 것 같은데
 		return s.changeCarOwner(APIstub, args)
+	} else if function == "deleteId"{
+		return s.deleteId(APIstub, args)
 	}
 
 	return shim.Error("Invalid Smart Contract function name.")
@@ -164,7 +166,42 @@ func (s *SmartContract) queryAllIds(APIstub shim.ChaincodeStubInterface) sc.Resp
 	return shim.Success(buffer.Bytes())
 }
 
+//-----------------------------------------------------------------------
+func (s *SmartContract) deleteId(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 
+	if len(args) != 1{
+		return shim.Error("Incorrect number of arguments. Expecting 1")
+	}
+
+	idName := args[0]
+
+	//삭제를 어떻게 구현할 것인가?
+	//삭제 및 업데이트 과정에 대해 고려해 볼 것
+
+//	var jsonResp string
+//	idAsbytes, err := APIstub.GetState(idName)
+//	if err != nil{
+//		jsonResp = "{\"Error\":\"Failed to get state for " + idName + "\"}"
+//		return shim.Error(jsonResp)
+//	} else if idAsbytes == nil{
+//		jsonResp = "{\"Error\":\"Id does not exist: " + idName + "\"}"
+//		return shim.Error(jsonResp)
+//	}
+
+//	var idJSON Identity
+//	err = json.Unmarshal([]byte(idAsbytes), &idJSON)
+//	if err != nil{
+//		jsonResp = "{\"Error\":\"Failed to decode JSON of: " + idName + "\"}"
+//		return shim.Error(jsonResp)
+//	}
+
+//	err = APIstub.DelState(idName)
+//	if err != nil{
+//		return shim.Error("Failed to delete state:" + err.Error())
+//	}
+
+	return shim.Success(nil)
+}
 
 
 
