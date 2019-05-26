@@ -56,9 +56,9 @@ type Identity struct {
  * The Init method is called when the Smart Contract "fabcar" is instantiated by the blockchain network
  * Best practice is to have any Ledger initialization in separate function -- see initLedger()
  */
-func (s *SmartContract) Init(APIstub shim.ChaincodeStubInterface) sc.Response {
-	return shim.Success(nil)
-}
+//func (s *SmartContract) Init(APIstub shim.ChaincodeStubInterface) sc.Response {
+//	return shim.Success(nil)
+//}
 
 /*
  * The Invoke method is called as a result of an application request to run the Smart Contract "fabcar"
@@ -79,8 +79,6 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
 		return s.queryAllIds(APIstub)
 	} else if function == "changeCarOwner" { //쓸 일 없을 것 같은데
 		return s.changeCarOwner(APIstub, args)
-	} else if function == "deleteId"{
-		return s.deleteId(APIstub, args)
 	}
 
 	return shim.Error("Invalid Smart Contract function name.")
@@ -112,10 +110,10 @@ func (s *SmartContract) createId(APIstub shim.ChaincodeStubInterface, args []str
 		return shim.Error("Incorrect number of arguments. Expecting 5")
 	}
 
-	var id = Identity{Name: args[1], Phone: args[2], Birth: args[3], Address: args[4], Password: args[5]}
+	var id = Identity{Name: args[1], Phone: args[2], Birth: args[3], Address: args[4], Password: args[5]} //객체 생성
 
-	idAsBytes, _ := json.Marshal(id)
-	APIstub.PutState(args[0], idAsBytes)
+	idAsBytes, _ := json.Marshal(id) //json 포맷으로 인코딩
+	APIstub.PutState(args[0], idAsBytes) //shim API를 이용하여 fabric에 데이터를 넣음
 
 	return shim.Success(nil)
 }
@@ -164,43 +162,6 @@ func (s *SmartContract) queryAllIds(APIstub shim.ChaincodeStubInterface) sc.Resp
 	fmt.Printf("- queryAllIds:\n%s\n", buffer.String())
 
 	return shim.Success(buffer.Bytes())
-}
-
-//-----------------------------------------------------------------------
-func (s *SmartContract) deleteId(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
-
-	if len(args) != 1{
-		return shim.Error("Incorrect number of arguments. Expecting 1")
-	}
-
-	idName := args[0]
-
-	//삭제를 어떻게 구현할 것인가?
-	//삭제 및 업데이트 과정에 대해 고려해 볼 것
-
-//	var jsonResp string
-//	idAsbytes, err := APIstub.GetState(idName)
-//	if err != nil{
-//		jsonResp = "{\"Error\":\"Failed to get state for " + idName + "\"}"
-//		return shim.Error(jsonResp)
-//	} else if idAsbytes == nil{
-//		jsonResp = "{\"Error\":\"Id does not exist: " + idName + "\"}"
-//		return shim.Error(jsonResp)
-//	}
-
-//	var idJSON Identity
-//	err = json.Unmarshal([]byte(idAsbytes), &idJSON)
-//	if err != nil{
-//		jsonResp = "{\"Error\":\"Failed to decode JSON of: " + idName + "\"}"
-//		return shim.Error(jsonResp)
-//	}
-
-//	err = APIstub.DelState(idName)
-//	if err != nil{
-//		return shim.Error("Failed to delete state:" + err.Error())
-//	}
-
-	return shim.Success(nil)
 }
 
 
