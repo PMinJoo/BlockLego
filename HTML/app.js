@@ -16,10 +16,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 var router = require('./routes/index.js')(app);
 var mailerRouter = require('./routes/nodemailerTest.js')(app);
-var authRouter = require('./routes/enterAuthNum.js')(app);
 app.use('/', router);
 app.use('/nodemailerTest', mailerRouter);
-app.use('/enterAuthNum', authRouter);
 
 //포트 설정
 app.listen(3303, function(){
