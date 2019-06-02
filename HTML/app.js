@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use(expressLayouts);
 //app.use('/user', express.static('uploads'));
-app.use(express.static(__dirname + '/assets'));
+app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({extended:true}));
 
 
