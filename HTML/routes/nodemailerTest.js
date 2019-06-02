@@ -59,6 +59,15 @@ module.exports = function (app) {
     //res.redirect("userRegister.html");
   })
 
+  router.post("/signIn", function(req, res){
+    let inputName = req.body.inputName;
+    let studentNumber = req.body.inputStudentNumber;
+    let phone = req.body.inputPhone;
+    let password = req.body.userPwd;
+
+    res.send('<script type="text/javascript">alert("회원가입이 완료되었습니다.");document.location.href="/index.html";</script>');
+
+  })
   //module.exports = router;
 
 
