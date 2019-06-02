@@ -4,9 +4,10 @@ module.exports = function (app) {
   var nodemailer = require('nodemailer');
   var router = express.Router();
   let randomNumber = 000000;
+  let email;
 
   router.post('/', function(req, res){
-      let email = req.body.userEmail;
+      email = req.body.userEmail;
       randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
 
       let transporter = nodemailer.createTransport({
