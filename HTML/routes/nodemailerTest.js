@@ -9,13 +9,13 @@ module.exports = function (app) {
       let email = req.body.userEmail;
       randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
 
-      let transporter = nodemailer.createTransport{(
+      let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
           user: 'blocklego02pj@gmail.com',
           pass: 'blocklego_pjNodejs0512'
         }
-      )};
+      });
 
       let mailOptions ={
         from: 'blocklego02pj@gmail.com',

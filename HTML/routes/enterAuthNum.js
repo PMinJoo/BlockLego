@@ -1,6 +1,10 @@
 module.exports = function (app) {
   //인증번호 확인
-  app.post("/enterAuthNum", function(req, res){
+  var express = require('express');
+  var nodemailer = require('nodemailer');
+  var router = express.Router();
+
+  router.post("/enterAuthNum", function(req, res){
     let authNum = req.body.authNumber;
 
     if(randomNumber == authNum){
