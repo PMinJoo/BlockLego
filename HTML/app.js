@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.locals.pretty = true; // html code readability
-app.set('views', './assets');
+app.set('views', './views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use(expressLayouts);
