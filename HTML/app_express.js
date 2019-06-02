@@ -7,8 +7,8 @@ var app = express();
 
 app.locals.pretty = true; // html code readability
 app.set('views', './assets');
-//app.set('view engine', 'ejs');
-//app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 app.use(expressLayouts);
 //app.use('/user', express.static('uploads'));
 app.use(express.static(__dirname + '/assets'));
