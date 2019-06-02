@@ -7,7 +7,7 @@ module.exports = function (app) {
   let email;
 
   router.post('/', function(req, res){
-      email = req.body.userEmail;
+      email = req.body.userEmail+"@naver.com";
       randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
 
       let transporter = nodemailer.createTransport({
