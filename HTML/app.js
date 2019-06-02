@@ -8,12 +8,11 @@ var app = express();
 app.locals.pretty = true; // html code readability
 app.set('views', './views');
 app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+//app.engine('html', require('ejs').renderFile);
 app.use(expressLayouts);
 //app.use('/user', express.static('uploads'));
 app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({extended:true}));
-
 
 var router = require('./routes/index.js')(app);
 var mailerRouter = require('./routes/nodemailerTest.js')(app);
