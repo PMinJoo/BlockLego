@@ -4,7 +4,7 @@ module.exports = function (app) {
   var nodemailer = require('nodemailer');
   var router = express.Router();
 
-  router.post("/enterAuthNum", function(req, res){
+  router.post("/", function(req, res){
     let authNum = req.body.authNumber;
 
     if(randomNumber == authNum){
