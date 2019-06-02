@@ -47,7 +47,6 @@ type SmartContract struct {
 type Identity struct {
 	Name     String 'json:"name"'
 	Phone    String 'json:"phone"'
-	Birth    String 'json:"birth"'
 	Address  String 'json:"address"'
 	Password String 'json:"password"'
 }
