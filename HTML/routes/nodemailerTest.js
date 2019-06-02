@@ -5,7 +5,7 @@ module.exports = function (app) {
   var router = express.Router();
   let randomNumber = 000000;
 
-  router.post('/nodemailerTest', function(req, res){
+  router.post('/', function(req, res){
       let email = req.body.userEmail;
       randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
 
