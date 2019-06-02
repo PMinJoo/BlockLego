@@ -5,14 +5,14 @@
 	Last change: June 01 2016
 	Version: 1.0
 ------------------------------------------------------------------------*/
-	
+
 	/* [Layout] */
-	
+
 /*----------------------------------------------------------------------
 	- Google Map
-	
-	* Document Scroll		
-		
+
+	* Document Scroll
+
 	* Document Ready
 		- Scrolling Navigation
 		- Find all anchors
@@ -32,8 +32,8 @@
 
 (function($) {
 
-	"use strict"	
-	
+	"use strict"
+
 	/* - Google Map */
 	function initialize(obj) {
 		var lat = $("#"+obj).attr("data-lat");
@@ -42,10 +42,10 @@
 		var myLatlng = new google.maps.LatLng(lat,lng);
 		var map, marker, infowindow;
 		var image = "images/marker.png";
-		var zoomLevel = parseInt($("#"+obj).attr("data-zoom") ,10);		
+		var zoomLevel = parseInt($("#"+obj).attr("data-zoom") ,10);
 		var styles = [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
-		var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});	
-		
+		var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
+
 		var mapOptions = {
 			zoom: zoomLevel,
 			disableDefaultUI: true,
@@ -55,16 +55,16 @@
             mapTypeIds: [google.maps.MapTypeId.ROADMAP, "map_style"]
 			}
 		}
-		
-		map = new google.maps.Map(document.getElementById(obj), mapOptions);	
-		
+
+		map = new google.maps.Map(document.getElementById(obj), mapOptions);
+
 		map.mapTypes.set("map_style", styledMap);
 		map.setMapTypeId("map_style");
-		
+
 		infowindow = new google.maps.InfoWindow({
 			content: contentString
-		});      
-	    
+		});
+
         marker = new google.maps.Marker({
 			position: myLatlng,
 			map: map,
@@ -73,7 +73,7 @@
 
 		google.maps.event.addListener(marker, "click", function() {
 			infowindow.open(map,marker);
-		});	
+		});
 	}
 	
 	/* * Document Scroll - Window Scroll */
@@ -94,7 +94,7 @@
 		else
 		{
 			$(".menu-block").removeClass("navbar-fixed-top animated fadeInDown");
-		} /* set sticky menu - end */	
+		} /* set sticky menu - end */
 
 		if ($(this).scrollTop() >= 50)
 		{
@@ -106,15 +106,15 @@
 			$("#back-to-top").fadeOut(200);   /* Else fade out the arrow */
 		}
 	});
-		
+
 	/* * Document Ready - Handler for .ready() called */
 	$(document).ready(function($) {
-	
+
 		/* - Scrolling Navigation */
 		var scroll	=	$(window).scrollTop();
 		var width	=	$(window).width();
 		var height	=	$(window).height();
-		
+
 		/*** set sticky menu ***/
 		if( scroll >= height -500 )
 		{
@@ -128,16 +128,16 @@
 		{
 			$(".header-main").removeClass("navbar-fixed-top");
 		} /* set sticky menu - end */
-		
+
 		$('.navbar-nav li a[href*="#"]:not([href="#"]), .site-logo a[href*="#"]:not([href="#"])').on('click', function(e) {
 
 			var $anchor = $(this);
-			
+
 			$('html, body').stop().animate({ scrollTop: $($anchor.attr('href')).offset().top - 49 }, 1500, 'easeInOutExpo');
-			
+
 			e.preventDefault();
 		});
-		
+
 		/* - Responsive Caret */
 		$(".ddl-switch").on("click", function() {
 
@@ -152,21 +152,21 @@
 				li.children(".dropdown-menu").slideDown();
 			}
 		});
-		
-		/* - Menu PopUp */	
+
+		/* - Menu PopUp */
 		$( "#menu-popup" ).on("click", function(event) {
 			event.preventDefault();
 			$(".ow-navigation .nav.menubar").toggle("slide");
 		});
-		
-	
+
+
 		/* - Photo Slider */
 
-			/* Function to animate slider captions */ 
+			/* Function to animate slider captions */
 			function doAnimations( elems ) {
 				/* Cache the animationend event in a variable */
 				var animEndEv = 'webkitAnimationEnd animationend';
-				
+
 				elems.each(function () {
 					var $this = $(this),
 						$animationType = $this.data('animation');
@@ -179,23 +179,23 @@
 			/* Variables on page load */
 			var $myCarousel = $('#main-carousel'),
 				$firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
-				
-			/* Initialize carousel */ 
+
+			/* Initialize carousel */
 			$myCarousel.carousel();
-			
+
 			/* Animate captions in first slide on page load */
 			doAnimations($firstAnimatingElems);
-			
-			/* Pause carousel */ 
+
+			/* Pause carousel */
 			$myCarousel.carousel('pause');
-			
-			
-			/* Other slides to be animated on carousel slide event */ 
+
+
+			/* Other slides to be animated on carousel slide event */
 			$myCarousel.on('slide.bs.carousel', function (e) {
 				var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
 				doAnimations($animatingElems);
 		});
-		
+
 		/* - Client Carousel */
 		if( $(".clients-carousel").length ) {
 			$(".clients-carousel").owlCarousel({
@@ -220,7 +220,7 @@
 				}
 			});
 		}
-		
+
 		/* - Lightbox for Highlights Video */
 		$('.video-section a').magnificPopup({
 			disableOn: 700,
@@ -231,7 +231,7 @@
 
 			fixedContentPos: false
 		});
-		
+
 		/* - Counter */
 		if($(".counter-section").length) {
 			$(".counter-section").each(function ()
@@ -240,27 +240,27 @@
 				var myVal = $(this).data("value");
 
 				$this.appear(function()
-				{		
+				{
 					var statistics_item_count = 0;
-					var statistics_count = 0;					
+					var statistics_count = 0;
 					statistics_item_count = $( "[id*='statistics_count-']" ).length;
-					
+
 					for(var i=1; i<=statistics_item_count; i++)
 					{
 						statistics_count = $( "[id*='statistics_count-"+i+"']" ).attr( "data-statistics_percent" );
 						$("[id*='statistics_count-"+i+"']").animateNumber({ number: statistics_count }, 4000);
-					}				
+					}
 				});
 			});
 		}
-		
+
 		/* - Contact Map */
 		if($("#map-canvas-contact").length==1){
 			initialize("map-canvas-contact");
 		}
-		
+
 		if($('#map-canvas-contact-1').length==1){
-			initialize('map-canvas-contact-1');			
+			initialize('map-canvas-contact-1');
 		}
 
 		/* - Quick Contact Form */
@@ -281,15 +281,15 @@
 					} else {
 						$("#alert-msg").html(data["msg"]);
 						$("#alert-msg").addClass("alert-msg-success");
-						$("#alert-msg").removeClass("alert-msg-failure");					
-						$("#input_fname").val("");						
-						$("#input_lname").val("");						
-						$("#input_email").val("");						
-						$("#input_phone").val("");						
-						$("#input_subject").val("");						
+						$("#alert-msg").removeClass("alert-msg-failure");
+						$("#input_fname").val("");
+						$("#input_lname").val("");
+						$("#input_email").val("");
+						$("#input_phone").val("");
+						$("#input_subject").val("");
 						$("#textarea_message").val("");
-						$("#alert-msg").show();				
-					}			
+						$("#alert-msg").show();
+					}
 				},
 				error: function(xhr, textStatus, errorThrown) {
 					alert(textStatus);
@@ -301,12 +301,12 @@
 		if( $(".sb-search").length ) {
 			new UISearch( document.getElementById( "sb-search" ) );
 		}
-		
+
 	});	/* - Document Ready /- */
-	
+
 	/* * Window Load - Handler for .load() called */
 	$(window).load(function() {
-		
+
 		var $container = $('.portfolio-list');
 		$container.isotope({
 		  itemSelector: '.portfolio-list > li',
@@ -318,10 +318,10 @@
 			$('#filters a').removeClass('active');
 			$(this).addClass('active');
 			var selector = $(this).attr('data-filter');
-			$container.isotope({ filter: selector });		
+			$container.isotope({ filter: selector });
 			return false;
 		});
-		
+
 		/* - Site Loader */
 		if ( !$("html").is(".ie6, .ie7, .ie8") ) {
 			$("#site-loader").delay(1000).fadeOut("slow");
