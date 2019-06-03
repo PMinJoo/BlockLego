@@ -37,7 +37,9 @@ app.use(session({
 app.use(createSession());
 
 var router = require('./routes/index.js')(app);
+var nanumstartRouter = require('./routes/nanumstart.js')(app);
 app.use('/', router);
+app.use('/nanum', nanumstartRouter);
 
 //포트 설정
 app.listen(3300, function(){
