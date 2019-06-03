@@ -16,6 +16,7 @@ module.exports = function (app) {
 
   router.post('/', function(req, res){
       email = req.body.userEmail+"@dongguk.edu";
+  		var queryString = 'select * from Block where dongguk_webmail=?'
       client.query(queryString, [email], function (error2, data) {
   			if (error2) {
   				console.log(error2);
