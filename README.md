@@ -2,28 +2,18 @@
 기업사회맞춤형프로젝트1 - 개인신원인증(블록레고 팀)
 
 설치 목록
-npm init
+npm init  
+npm install express --save  
+npm install body-parser --save  
+npm install supervisor -g  
+npm install multer --save  
+npm install session --save  
+npm install ejs --save  
+npm install express-ejs-layouts --save  
+npm install mysql  
 
-npm install express --save
-
-npm install body-parser --save
-
-npm install supervisor -g
-
-npm install multer --save
-
-npm install session --save
-
-npm install ejs --save
-
-npm install express-ejs-layouts --save
-
-npm install mysql
-
-
-node app.js
-
-or supervisor app.js
+node app.js  
+or supervisor app.js  
 
 *** 필수!! node.js 설치해야함
 
