@@ -7,7 +7,7 @@ module.exports = function (app) {
   let randomNumber = 000000;
   let email;
 
-  var connection = mysql.createConnection({
+  var client = mysql.createConnection({
       host: "localhost", //서버 로컬 IP
       user: "root", //계정 아이디
       password: "1234", //계정 비밀번호
@@ -16,32 +16,43 @@ module.exports = function (app) {
 
   router.post('/', function(req, res){
       email = req.body.userEmail+"@dongguk.edu";
-      randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
+      client.query(queryString, [email], function (error2, data) {
+  			if (error2) {
+  				console.log(error2);
+  				res.redirect('/');
+  			} else if (!data[0]) {
+          randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
 
-      let transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: 'blocklego02pj@gmail.com',
-          pass: 'blocklego_pjNodejs0512'
-        }
-      });
+          let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'blocklego02pj@gmail.com',
+              pass: 'blocklego_pjNodejs0512'
+            }
+          });
 
-      let mailOptions ={
-        from: 'blocklego02pj@gmail.com',
-        to: email,
-        subject: 'BlockLego에서 발송한 확인 메일입니다.',
-        text: '홈페이지로 돌아가 인증번호를 입력해 주세요 : ' + randomNumber
-      };
+          let mailOptions ={
+            from: 'blocklego02pj@gmail.com',
+            to: email,
+            subject: 'BlockLego에서 발송한 확인 메일입니다.',
+            text: '홈페이지로 돌아가 인증번호를 입력해 주세요 : ' + randomNumber
+          };
 
-      transporter.sendMail(mailOptions, function(err, info){
-        if(error){
-          console.log(error);
-        }
-        else{
-          console.log('Email sent: ' + info.response);
-        }
-      });
-      res.redirect("userRegister.html");
+          transporter.sendMail(mailOptions, function(err, info){
+            if(error){
+              console.log(error);
+            }
+            else{
+              console.log('Email sent: ' + info.response);
+            }
+          });
+          res.redirect("userRegister.html");
+  			} else {
+          res.send('<script type="text/javascript">alert("중복된 아이디입니다.");document.location.href="/single-project.html";</script>');
+  			}
+  		});
+
+
   })
 
 
