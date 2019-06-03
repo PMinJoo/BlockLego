@@ -4,6 +4,16 @@ var expressLayouts = require('express-ejs-layouts')
 const nodemailer = require('nodemailer');
 var bodyParser = require('body-parser');
 var app = express();
+var mysql = require('mysql');
+
+//DB 접속
+  var connection = mysql.createConnection({
+      host: "13.125.249.19", //서버 로컬 IP
+      port: 3303,
+      user: "root", //계정 아이디
+      password: "1234", //계정 비밀번호
+      database: "Block" //접속할 DB
+  })
 
 app.locals.pretty = true; // html code readability
 app.set('views', './views');
