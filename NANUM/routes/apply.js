@@ -12,6 +12,11 @@ module.exports = function(app){
   })
 
 
+  router.get('/init', function(req, res){
+    //작업
+    res.redirect('/services.html');
+  })
+
   return router;
 
 };
