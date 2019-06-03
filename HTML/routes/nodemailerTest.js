@@ -16,33 +16,44 @@ module.exports = function (app) {
   })
 
   router.post('/', function(req, res){
-      email = req.body.userEmail+"@naver.com";
-      randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
+      email = req.body.userEmail+"@dongguk.edu";
+  		res.status(200);
+      var queryString = 'select * from Web where dongguk_webmail=?'
+      connection.query(queryString, [email], function (error2, data) {
+  			if (error2) {
+  				console.log(error2);
+  				res.redirect('/');
+  			} else if (!data[0]) {
+          randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
 
-      let transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: 'blocklego02pj@gmail.com',
-          pass: 'blocklego_pjNodejs0512'
-        }
-      });
+          let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'blocklego02pj@gmail.com',
+              pass: 'blocklego_pjNodejs0512'
+            }
+          });
 
-      let mailOptions ={
-        from: 'blocklego02pj@gmail.com',
-        to: email,
-        subject: 'BlockLego에서 발송한 확인 메일입니다.',
-        text: '홈페이지로 돌아가 인증번호를 입력해 주세요 : ' + randomNumber
-      };
+          let mailOptions ={
+            from: 'blocklego02pj@gmail.com',
+            to: email,
+            subject: 'BlockLego에서 발송한 확인 메일입니다.',
+            text: '홈페이지로 돌아가 인증번호를 입력해 주세요 : ' + randomNumber
+          };
 
-      transporter.sendMail(mailOptions, function(err, info){
-        if(error){
-          console.log(error);
+          transporter.sendMail(mailOptions, function(err, info){
+            if(error){
+              console.log(error);
+            }
+            else{
+              console.log('Email sent: ' + info.response);
+            }
+          });
+          res.redirect("userRegister.html");
+  			} else {
+  				res.send('<script type="text/javascript">alert("이미 존재하는 아이디 입니다.");document.location.href="/single-project.html";</script>');
         }
-        else{
-          console.log('Email sent: ' + info.response);
-        }
-      });
-      res.redirect("userRegister.html");
+  		});
   })
 
 
