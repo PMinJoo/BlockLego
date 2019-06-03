@@ -8,7 +8,7 @@ module.exports = function(app){
   router.post('/', function(req, res){
     var title = req.body.title;
     var number = req.body.number;
-    var kind = req.body.kind;
+    var kind = req.body.kind;1
     var area = req.body.area;
 
     //db 저장
@@ -17,7 +17,7 @@ module.exports = function(app){
   })
 
   router.get('/init', function(req, res){
-    //작업
+    //db 연결 작업
     res.redirect('/mypage.html');
   })
 
