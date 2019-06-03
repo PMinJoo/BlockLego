@@ -49,7 +49,7 @@ module.exports = function (app) {
           });
           res.redirect("userRegister.html");
   			} else {
-          res.send('<script type="text/javascript">alert("중복된 아이디입니다.");document.location.href="/single-project.html";</script>');
+          res.send('<script type="text/javascript">alert("이미 존재하는 아이디 입니다.");document.location.href="/single-project.html";</script>');
   			}
   		});
 
