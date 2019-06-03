@@ -86,7 +86,7 @@ module.exports = function (app) {
     let password = req.body.userPwd;
     var queryString = 'INSERT INTO Web (dongguk_webmail) VALUES(?)';
     var params = [email];
-    connection.query(queryString, params, function (err, rows) {
+    client.query(queryString, params, function (err, rows) {
       if (err) {
         console.log(err);
       }
