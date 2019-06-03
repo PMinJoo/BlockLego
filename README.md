@@ -15,7 +15,8 @@ npm install mysql
 node app.js  
 or supervisor app.js  
 
-*** 필수!! node.js 설치해야함
+*** 필수!! node.js 설치해야함  
+
 ---
 
 <b>실행 방법</b>  
