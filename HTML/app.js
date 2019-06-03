@@ -8,7 +8,7 @@ var mysql = require('mysql');
 
 //DB 접속
   var connection = mysql.createConnection({
-      host: "172.31.32.248", //서버 로컬 IP
+      host: "192.168.240.1", //서버 로컬 IP
       port: 3303,
       user: "root", //계정 아이디
       password: "1234", //계정 비밀번호
