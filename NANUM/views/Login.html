@@ -82,14 +82,14 @@
 								<h5>Login</h5>
 								<img src="images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
 								<p>Insert ID and Password.</p>
-								<form class="form-signin">
+								<form class="form-signin" method="post" action="/index/login">
 		              <div class="form-label-group">
-		                <input type="id" id="inputId" class="form-control" placeholder="ID" required autofocus>
+		                <input type="id" name="inputId" class="form-control" placeholder="ID" required autofocus>
 		                <label for="inputEmail">ID</label>
 		              </div>
 
 		              <div class="form-label-group">
-		                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		                <input type="password" name="inputPassword" class="form-control" placeholder="Password" required>
 		                <label for="inputPassword">Password</label>
 		              </div>
 		              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
