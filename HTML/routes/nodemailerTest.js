@@ -84,7 +84,13 @@ module.exports = function (app) {
     let studentNumber = req.body.inputStudentNumber;
     let phone = req.body.inputPhone;
     let password = req.body.userPwd;
-
+    var queryString = 'INSERT INTO Web (dongguk_webmail) VALUES(?)';
+    var params = [email];
+    connection.query(queryString, params, function (err, rows) {
+      if (err) {
+        console.log(err);
+      }
+    });
     res.send('<script type="text/javascript">alert("회원가입이 완료되었습니다.");document.location.href="/index.html";</script>');
 
   })
