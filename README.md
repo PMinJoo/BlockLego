@@ -20,10 +20,8 @@ or supervisor app.js
 ---
 
 <b>실행 방법</b>  
-인증웹 : HTML 폴더로 이동 후 cmd 창에서 node app_express 입력
+인증웹 : HTML 폴더로 이동 후 node app.js 입력  
+-> http://13.125.249.19:3303/  
 
--> http://localhost:3303
-
-활용웹 : NANUM 폴더로 이동 후 cmd 창에서 node app.js 입력
-
--> http://localhost:3300
+활용웹 : NANUM 폴더로 이동 후 node app.js 입력  
+-> http://13.125.249.19:3300/
