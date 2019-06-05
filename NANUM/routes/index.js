@@ -5,7 +5,6 @@ module.exports = function (app) {
   var JSAlert = require("js-alert");
   var url = require('url');
 
-
   var client = mysql.createConnection({
       host: "localhost", //서버 로컬 IP
       user: "root", //계정 아이디
@@ -13,13 +12,13 @@ module.exports = function (app) {
       database: "Block" //접속할 DB
   })
 
-  router.get('/', function(req, res){
-    res.status(200);
-    res.render('index', {
-      login: req.session.login,
-      userid: req.session.userID,
-    });
-  })
+  // router.get('/', function(req, res){
+  //   res.status(200);
+  //   res.render('index', {
+  //     login: req.session.login,
+  //     userid: req.session.userID,
+  //   });
+  // })
 
 //login
   router.post('/login', function(req, res){
@@ -43,11 +42,11 @@ module.exports = function (app) {
   })
 
   //Logout
-  router.get('/logout', function(req, res){
-    req.session.login = 'logout';
-    res.status(200);
-    res.redirect('/index.html');
-  })
+  // router.get('/logout', function(req, res){
+  //   req.session.login = 'logout';
+  //   res.status(200);
+  //   res.redirect('/index.html');
+  // })
 
   return router;
 };
