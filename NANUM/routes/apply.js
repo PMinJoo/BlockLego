@@ -31,7 +31,7 @@ module.exports = function(app){
             console.log(error2);
             res.redirect('/');
         } else {
-          res.render('services.html', {
+          res.render('services', {
               url: req.url,
               login: req.session.login,
               username: req.session.username,
