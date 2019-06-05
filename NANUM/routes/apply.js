@@ -18,15 +18,6 @@ module.exports = function(app){
       res.status(200);
   })
 
-  router.post('/write', function(req, res){
-    var title = req.body.title;
-    var number = req.body.number;
-    var kind = req.body.kind;1
-    var area = req.body.area;
-
-    //db 저장
-  })
-
   router.post('/regist', function(req, res){
     randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
     res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");document.location.href="/services.html";</script>');
