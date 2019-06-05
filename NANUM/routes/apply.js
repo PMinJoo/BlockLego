@@ -40,7 +40,7 @@ module.exports = function(app){
             console.log(error2);
             res.redirect('/');
         } else {
-          res.render('services', {
+          res.render('services.html', {
               url: req.url,
               login: req.session.login,
               username: req.session.username,
