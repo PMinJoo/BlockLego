@@ -14,8 +14,10 @@ module.exports = function(app){
       database: "Block" //접속할 DB
   })
 
-  router.get('/', function (req, res) {
+  router.get('/:id', function (req, res) {
       res.status(200);
+
+      console.log(req.query.id);
   })
 
 
