@@ -35,7 +35,7 @@ module.exports = function(app){
               url: req.url,
               login: req.session.login,
               username: req.session.username,
-              data: result,
+              data: data,
           });
         }
 
