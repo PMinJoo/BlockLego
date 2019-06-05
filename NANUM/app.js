@@ -40,7 +40,7 @@ var nanumstartRouter = require('./routes/nanumstart.js')(app);
 var applyRouter = require('./routes/apply.js')(app);
 var mypageRouter = require('./routes/mypage.js')(app);
 app.use('/', router);
-app.use('/nanum', nanumstartRouter);
+app.use('/nanumstart', nanumstartRouter);
 app.use('/apply', applyRouter);
 app.use('/mypage', mypageRouter);
 

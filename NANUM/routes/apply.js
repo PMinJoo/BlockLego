@@ -4,9 +4,26 @@ module.exports = function(app){
   var router = express.Router();
   var mysql = require('mysql');
   var usl = require('url');
+  var dateFormat = require('dateformat');
   let randomNumber = 00000000;
 
-  router.post('/', function(req, res){
+  var connection = mysql.createConnection({
+      host: "localhost", //서버 로컬 IP
+      user: "root", //계정 아이디
+      password: "1234", //계정 비밀번호
+      database: "Block" //접속할 DB
+  })
+
+  router.get('/', function(req, res){
+    res.status(200);
+    res.render('index', {
+			url: req.url,
+      login: req.session.login,
+      userid: req.session.userID,
+    });
+  })
+
+  router.post('/regist', function(req, res){
     randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
     res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");document.location.href="/services.html";</script>');
     //de 저장
