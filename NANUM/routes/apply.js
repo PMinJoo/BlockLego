@@ -40,7 +40,7 @@ module.exports = function(app){
         }
 
     })
-    res.redirect('/services.html');
+    res.redirect('/services.ejs');
   })
 
   return router;
