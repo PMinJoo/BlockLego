@@ -10,10 +10,21 @@ module.exports = function(app){
   })
 
 
-  router.get('/init', function(req, res){
+  router.get('/initMynanum', function(req, res){
     //작업
-    res.redirect('/services.html');
+    res.redirect('/mypage.html');
   })
+
+  router.get('/initMyorder', function(req, res){
+    //작업
+    res.redirect('/myorder.html');
+  })
+
+  router.get('/initMonitoring', function(req, res){
+    //작업
+    res.redirect('/monitoring.html');
+  })
+
 
   return router;
 
