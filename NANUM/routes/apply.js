@@ -14,18 +14,18 @@ module.exports = function(app){
       database: "Block" //접속할 DB
   })
 
-  router.get('/:id', function (req, res) {
-      res.status(200);
-
-      console.log("!!"+req.params.id);
-
-      res.render('services', {
-          url: req.url,
-          login: req.session.login,
-          username: req.session.username,
-          data: data,
-      });
-  })
+  // router.get('/:id', function (req, res) {
+  //     res.status(200);
+  //
+  //     console.log("!!"+req.params.id);
+  // 
+  //     res.render('services', {
+  //         url: req.url,
+  //         login: req.session.login,
+  //         username: req.session.username,
+  //         data: data,
+  //     });
+  // })
 
 
     router.post('/write', function(req, res){
