@@ -38,7 +38,7 @@ module.exports = function(app){
           }
       });
 
-      res.redirect("/services.html");
+      res.redirect("/apply/init");
     })
 
   router.post('/regist', function(req, res){

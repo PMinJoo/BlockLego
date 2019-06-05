@@ -31,7 +31,7 @@ module.exports = function(app){
     var area = req.body.area;
     var day=dateFormat(new Date(), "yyyy-mm-dd hh:MM:ss");
     randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
-    var queryString = 'insert into Nanum (nanum_id, title, writer, write_date, kind, quantity, place, nanum_date) values (?, ?, ?, ?, ?, ?, ?, ?)'
+    var queryString = 'insert into Nanum (nanum_id, title, writer, wirte_date, kind, quantity, place, nanum_date) values (?, ?, ?, ?, ?, ?, ?, ?)'
     var params = [randomNumber, title, req.session.userID, day, kind, number, area, nanumday];
     connection.query(queryString, params, function (err, rows) {
         if (err) {
@@ -42,7 +42,7 @@ module.exports = function(app){
         }
     });
 
-    res.redirect("/services.html");
+    res.redirect("/services");
   })
 
   router.get('/init', function(req, res){
