@@ -62,12 +62,11 @@ module.exports = function (app) {
         var user = data[0];
 				req.session.userID = id;
 				req.session.login = 'login';
-        res.redirect("index-2.html");
+        res.redirect("/index2");
 				console.log(req.session.login);
       }
     });
   })
-
 
     router.get('/index2', function(req, res){
       res.status(200);
