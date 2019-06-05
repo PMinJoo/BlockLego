@@ -25,6 +25,7 @@ module.exports = function (app) {
   router.post('/login', function(req, res){
     var id = req.body.inputId;
     var pw = req.body.inputPassword;
+		res.status(200);
     var queryString = 'select * from Web where dongguk_webmail=?'
     connection.query(queryString, [id], function (error2, data) {
       if (error2) {
