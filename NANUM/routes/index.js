@@ -22,6 +22,15 @@ module.exports = function (app) {
     });
   })
 
+  router.get('/login', function(req, res){
+    res.status(200);
+    res.render('login', {
+      url: req.url,
+      login: req.session.login,
+      userid: req.session.userID,
+    });
+  })
+
 //login
   router.post('/login', function(req, res){
     var id = req.body.inputId;
