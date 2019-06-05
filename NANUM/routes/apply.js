@@ -25,12 +25,6 @@ module.exports = function(app){
     var area = req.body.area;
 
     //db 저장
-    res.render('write.html', {
-        url: req.url,
-        login: req.session.login,
-        username: req.session.username,
-        data: data,
-    });
   })
 
   router.post('/regist', function(req, res){
