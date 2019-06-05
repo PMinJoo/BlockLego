@@ -17,7 +17,14 @@ module.exports = function(app){
   router.get('/:id', function (req, res) {
       res.status(200);
 
-      console.log("!!"+req.query.id);
+      console.log("!!"+req.params.id);
+
+      res.render('services', {
+          url: req.url,
+          login: req.session.login,
+          username: req.session.username,
+          data: data,
+      });
   })
 
 
