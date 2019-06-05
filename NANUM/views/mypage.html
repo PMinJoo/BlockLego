@@ -90,8 +90,16 @@
 						<ul class="nav navbar-nav menubar">
 							<li><a href="index-2.html" title="Portfolio">Home</a></li>
 							<li><a href="/apply/init" title="Services">Services</a></li>
-							<li class="dropdown active"><a href="/mypage/init" title="My Page">My Page</a></li>
-							<li><a href="index.html#menu-section" title="Sign Out">Sign Out</a></li>
+							<li class="dropdown">
+								<a href="#" title="My Page" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">My Page</a>
+								<i class="ddl-switch fa fa-angle-down"></i>
+								<ul class="dropdown-menu">
+									<li><a href="/mypage/init" title="Blog Post">My Nanum</a></li>
+									<li><a href="/mypage/init" title="Blog Post">My Order</a></li>
+									<li><a href="/mypage/init" title="Blog Post">Monitoring</a></li>
+								</ul>
+							</li>
+							<li><a href="/logout" title="Sign Out">Sign Out</a></li>
 						</ul>
 					</div>
 				</nav><!-- Navigation /- -->
@@ -110,56 +118,6 @@
 		<!-- Menu Section -->
 		<div class="menu-section container-fluid no-padding">
 			<div class="section-padding"></div>
-			<div class="container">
-				<div class="section-header">
-					<h3>My Order List</h3>
-					<h5>Dongguk University</h5>
-					<img src="images/section-seprator.png" alt="section-seprator" width="169" height="15">
-				</div><!-- Section Header /-  -->
-				<table class="table">
-				  <thead>
-				    <tr>
-				      <th scope="col">#</th>
-				      <th scope="col">Title</th>
-				      <th scope="col">Subject</th>
-				      <th scope="col">Date</th>
-				      <th scope="col">Place</th>
-				      <th scope="col">Customer Number</th>
-				      <th scope="col">Check</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				    <tr>
-				      <th scope="row">1</th>
-				      <td>Mark</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				      <td>@mdo</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>Jacob</td>
-				      <td>Thornton</td>
-				      <td>@fat</td>
-				      <td>@mdo</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>Larry</td>
-				      <td>the Bird</td>
-				      <td>@twitter</td>
-				      <td>@mdo</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				    </tr>
-				  </tbody>
-				</table>
-			</div><!-- Container /- -->
-			<br><br><br><br><br>
 			<div class="container">
 				<div class="section-header">
 					<h3>My Nanum List</h3>
