@@ -18,6 +18,29 @@ module.exports = function(app){
       res.status(200);
   })
 
+
+    router.post('/write', function(req, res){
+      var title = req.body.title;
+      var number = req.body.number;
+      var kind = req.body.kind;
+      var nanumday = req.body.nanumday;
+      var area = req.body.area;
+      var day=dateFormat(new Date(), "yyyy-mm-dd hh:MM:ss");
+      randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
+      var queryString = 'insert into Nanum (nanum_id, title, writer, write_date, kind, quantity, place, nanum_date) values (?, ?, ?, ?, ?, ?, ?, ?)'
+      var params = [randomNumber, title, req.session.userID, day, kind, number, area, nanumday];
+      connection.query(queryString, params, function (err, rows) {
+          if (err) {
+              console.log(err);
+          }
+          else{
+              res.send('<script type="text/javascript">alert("나눔이 정상적으로 등록되었습니다.");</script>');
+          }
+      });
+
+      res.redirect("/services.html");
+    })
+
   router.post('/regist', function(req, res){
     randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
     res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");document.location.href="/services.html";</script>');
