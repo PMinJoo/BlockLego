@@ -38,7 +38,7 @@ app.use(createSession());
 var router = require('./routes/index.js')(app);
 var applyRouter = require('./routes/apply.js')(app);
 var mypageRouter = require('./routes/mypage.js')(app);
-app.use('/', router);ㄴ
+app.use('/', router);
 app.use('/apply', applyRouter);
 app.use('/mypage', mypageRouter);
 
