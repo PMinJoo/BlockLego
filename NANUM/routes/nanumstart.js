@@ -15,7 +15,7 @@ module.exports = function(app){
 
   router.get('/', function(req, res){
     res.status(200);
-    res.render('index', {
+    res.render('nanumstart', {
 			url: req.url,
       login: req.session.login,
       userid: req.session.userID,

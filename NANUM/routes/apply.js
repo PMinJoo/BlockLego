@@ -14,13 +14,8 @@ module.exports = function(app){
       database: "Block" //접속할 DB
   })
 
-  router.get('/', function(req, res){
-    res.status(200);
-    res.render('index', {
-			url: req.url,
-      login: req.session.login,
-      userid: req.session.userID,
-    });
+  router.get('/', function (req, res) {
+      res.status(200);
   })
 
   router.post('/regist', function(req, res){
@@ -29,9 +24,22 @@ module.exports = function(app){
     //de 저장
   })
 
-
   router.get('/init', function(req, res){
-    //작업
+    var queryString = 'select * from Nanum'
+    connection.query(queryString, function (error2, data) {
+        if (error2) {
+            console.log(error2);
+            res.redirect('/');
+        } else {
+          res.render('services', {
+              url: req.url,
+              login: req.session.login,
+              username: req.session.username,
+              data: result,
+          });
+        }
+
+    })
     res.redirect('/services.html');
   })
 

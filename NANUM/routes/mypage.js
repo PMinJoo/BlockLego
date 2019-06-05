@@ -15,7 +15,7 @@ module.exports = function(app){
 
   router.get('/', function(req, res){
     res.status(200);
-    res.render('index', {
+    res.render('mypage', {
 			url: req.url,
       login: req.session.login,
       userid: req.session.userID,
@@ -25,7 +25,6 @@ module.exports = function(app){
   router.post('/check', function(req, res){
     //수령 버튼(check) 누르면 실행되는 곳
   })
-
 
   router.get('/initMynanum', function(req, res){
     //작업
