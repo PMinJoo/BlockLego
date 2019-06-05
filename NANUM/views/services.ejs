@@ -133,8 +133,8 @@
 					<p>Please register the things you can share with your students.</p>
 				</div><!-- Section Header /-  -->
 			<form method="post" action="/apply">
+				<% data.forEach(function (apply, index){ %>
 				<div class="menu-box">
-					<% data.forEach(function (apply, index){ %>
 					<h3><%= apply.title %><span>Up to <%= apply.quantity %> people</span></h3>
 					<p><%= apply.kind %> | <%= apply.place %> | <%= apply.nanum_date %><br>
 					<%= apply.write_date %> | <%= apply.writer %></p>
