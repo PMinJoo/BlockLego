@@ -7,7 +7,6 @@ module.exports = function (app) {
 
   var client = mysql.createConnection({
       host: "localhost", //서버 로컬 IP
-      port: 3306,
       user: "root", //계정 아이디
       password: "1234", //계정 비밀번호
       database: "Block" //접속할 DB
