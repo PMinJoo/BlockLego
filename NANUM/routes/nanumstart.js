@@ -5,6 +5,7 @@ module.exports = function(app){
   var mysql = require('mysql');
   var url = require('url');
   var dateFormat = require('dateformat');
+  let randomNumber = 00000000;
 
   var connection = mysql.createConnection({
       host: "localhost", //서버 로컬 IP
@@ -25,10 +26,21 @@ module.exports = function(app){
   router.post('/write', function(req, res){
     var title = req.body.title;
     var number = req.body.number;
-    var kind = req.body.kind;1
+    var kind = req.body.kind;
+    var nanumday = req.body.nanumday;
     var area = req.body.area;
-
-    //db 저장
+    var day=dateFormat(new Date(), "yyyy-mm-dd hh:MM:ss");
+    randomNumber = Math.floor(Math.random() * (999999-111111))+111111;
+    var queryString = 'insert into Nanum (nanum_id, title, writer, write_date, kind, quantity, place, nanum_date) values (?, ?, ?, ?, ?, ?, ?, ?)'
+    var params = [randomNumber, title, req.session.userID, day, kind, number, area, nanumday];
+    connection.query(queryString, params, function (err, rows) {
+        if (err) {
+            console.log(err);
+        }
+        else{
+            res.send('<script type="text/javascript">alert("나눔이 정상적으로 등록되었습니다.");</script>');
+        }
+    });
 
     res.redirect("/services.html");
   })
