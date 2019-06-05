@@ -16,7 +16,7 @@ module.exports = function(app){
   router.get('/', function(req, res){
     res.status(200);
     res.render('mypage', {
-			url: req.url,
+      url: req.url,
       login: req.session.login,
       userid: req.session.userID,
     });
@@ -27,12 +27,23 @@ module.exports = function(app){
   })
 
   router.get('/initMynanum', function(req, res){
-    res.status(200);
-    res.render('mypage', {
-      url: req.url,
-      login: req.session.login,
-      userid: req.session.userID,
-    });
+    var queryString = 'select * from NanumList where nanumer_id=? UNION select * from Nanum where nanumer_id=?'
+    connection.query(queryString, [req.session.userID, req.session.userID], function (error2, data) {
+        if (error2) {
+            console.log("???"+error2);
+            res.redirect('/');
+        }
+        else{
+            res.render('mypage', {
+              url: req.url,
+              login: req.session.login,
+              userid: req.session.userID,
+              data: data,
+            });
+        }
+    })
+
+
   })
 
   router.get('/initMyorder', function(req, res){

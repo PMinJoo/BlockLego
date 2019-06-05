@@ -130,20 +130,33 @@
 							<th scope="col">#</th>
 							<th scope="col">Title</th>
 							<th scope="col">Subject</th>
+							<th scope="col">Place</th>
+							<th scope="col">Date</th>
 							<th scope="col">Customer Number</th>
 							<th scope="col">Check</th>
 						</tr>
 					</thead>
 					<tbody>
+						<% var i = 1 %>
+						<% data.forEach(function (mypage, index){ %>
 						<form method="post" action="/mypage">
 						<tr>
-							<th scope="row">1</th>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td>@mdo</td>
+							<th scope="row"><%= i %></th>
+							<td><%= mypage.title %></td>
+							<td><%= mypage.kind %></td>
+							<td><%= mypage.place %></td>
+							<td><%= mypage.nanum_date %></td>
+							<td>@<%= mypage.auth_number %></td>
+							<% if(mypage.is_received == 0){ %>
 							<td><button type="button" href="/mypage/check" class="btn btn-danger">Check</button></td>
+							<% } %>
+							<% else %>
+							<td><button type="button" class="btn btn-secondary" disabled>Complete</button></td>
+							<% } %>
 						</tr>
 					</form>
+					<% })%>
+
 					</tbody>
 				</table>
 				<br><br><br><br><br>

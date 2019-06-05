@@ -68,10 +68,10 @@ module.exports = function(app){
             res.redirect('/');
         } else {
           res.render('services', {
-              url: req.url,
-              login: req.session.login,
-              username: req.session.username,
-              data: data,
+      			url: req.url,
+            login: req.session.login,
+            userid: req.session.userID,
+            data: data,
           });
         }
 
