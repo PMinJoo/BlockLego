@@ -27,18 +27,30 @@ module.exports = function(app){
   })
 
   router.get('/initMynanum', function(req, res){
-    //작업
-    res.redirect('/mypage.html');
+    res.status(200);
+    res.render('mypage', {
+      url: req.url,
+      login: req.session.login,
+      userid: req.session.userID,
+    });
   })
 
   router.get('/initMyorder', function(req, res){
-    //작업
-    res.redirect('/myorder.html');
+    res.status(200);
+    res.render('myorder', {
+      url: req.url,
+      login: req.session.login,
+      userid: req.session.userID,
+    });
   })
 
   router.get('/initMonitoring', function(req, res){
-    //작업
-    res.redirect('/monitoring.html');
+    res.status(200);
+    res.render('monitoring', {
+      url: req.url,
+      login: req.session.login,
+      userid: req.session.userID,
+    });
   })
 
 

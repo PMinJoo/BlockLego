@@ -27,6 +27,14 @@ module.exports = function(app){
   //     });
   // })
 
+    router.get('/write', function(req, res){
+      res.status(200);
+      res.render('write', {
+  			url: req.url,
+        login: req.session.login,
+        userid: req.session.userID,
+      });
+    })
 
     router.post('/write', function(req, res){
       var title = req.body.title;
