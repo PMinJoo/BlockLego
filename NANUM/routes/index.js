@@ -48,6 +48,7 @@ module.exports = function (app) {
     req.session.login = 'logout';
     res.status(200);
     res.redirect('/index.html');
+    console.log(req.session.login);
   })
 
   return router;
