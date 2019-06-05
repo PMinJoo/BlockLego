@@ -29,8 +29,12 @@ module.exports = function(app){
     var area = req.body.area;
 
     //db 저장
-
-    res.redirect("/services.html");
+    res.render('write.html', {
+        url: req.url,
+        login: req.session.login,
+        username: req.session.username,
+        data: data,
+    });
   })
 
   router.get('/init', function(req, res){
