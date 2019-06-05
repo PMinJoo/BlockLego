@@ -88,10 +88,18 @@
 					</div>
 					<div class="navbar-collapse collapse navbar-right" id="navbar">
 						<ul class="nav navbar-nav menubar">
-							<li><a href="index-2.ejs" title="Portfolio">Home</a></li>
+							<li><a href="index-2.html" title="Portfolio">Home</a></li>
 							<li class="dropdown active"><a href="/apply/init" title="Services">Services</a></li>
-							<li><a href="/mypage/init" title="My Page">My Page</a></li>
-							<li><a href="index.ejs#menu-section" title="Sign Out">Sign Out</a></li>
+							<li class="dropdown">
+								<a href="#" title="My Page" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">My Page</a>
+								<i class="ddl-switch fa fa-angle-down"></i>
+								<ul class="dropdown-menu">
+									<li><a href="/mypage/init" title="Nanum List">My Nanum</a></li>
+									<li><a href="/mypage/init" title="Order List">My Order</a></li>
+									<li><a href="/mypage/init" title="Monitoring">Monitoring</a></li>
+								</ul>
+							</li>
+							<li><a href="/logout" title="Sign Out">Sign Out</a></li>
 						</ul>
 					</div>
 				</nav><!-- Navigation /- -->
@@ -109,6 +117,7 @@
 
 		<!-- Menu Section -->
 		<div class="menu-section container-fluid no-padding">
+			<br>
 			<div class="container">
 				<div class="section-header">
 					<h3>Naum List</h3>
