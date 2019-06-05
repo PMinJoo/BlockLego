@@ -6,11 +6,10 @@ var app = express();
 var mysql = require('mysql')
 
 var connection = mysql.createConnection({
-  host: "",
-  port: ,
-  user: "",
-  password: "",
-  database: ""
+    host: "localhost", //서버 로컬 IP
+    user: "root", //계정 아이디
+    password: "1234", //계정 비밀번호
+    database: "Block" //접속할 DB
 })
 
 var createSession = function createSession(){
