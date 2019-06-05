@@ -68,6 +68,16 @@ module.exports = function (app) {
     });
   })
 
+
+    router.get('/index2', function(req, res){
+      res.status(200);
+      res.render('index-2', {
+  			url: req.url,
+        login: req.session.login,
+        userid: req.session.userID,
+      });
+    })
+
   //Logout
   router.get('/logout', function(req, res){
     req.session.login = 'logout';
