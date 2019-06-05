@@ -27,7 +27,7 @@ module.exports = function(app){
   })
 
   router.get('/initMynanum', function(req, res){
-    var queryString = 'select * from NanumList where nanumer_id=? UNION select * from Nanum where nanumer_id=?'
+    var queryString = '(select * from NanumList where nanumer_id=?) UNION (select * from Nanum where writer=?)'
     connection.query(queryString, [req.session.userID, req.session.userID], function (error2, data) {
         if (error2) {
             console.log("???"+error2);
