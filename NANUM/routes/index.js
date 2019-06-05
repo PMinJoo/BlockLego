@@ -7,18 +7,19 @@ module.exports = function (app) {
 
   var client = mysql.createConnection({
       host: "localhost", //서버 로컬 IP
+      port: 3306,
       user: "root", //계정 아이디
       password: "1234", //계정 비밀번호
       database: "Block" //접속할 DB
   })
 
-  // router.get('/', function(req, res){
-  //   res.status(200);
-  //   res.render('index', {
-  //     login: req.session.login,
-  //     userid: req.session.userID,
-  //   });
-  // })
+  router.get('/', function(req, res){
+    res.status(200);
+    res.render('index', {
+      login: req.session.login,
+      userid: req.session.userID,
+    });
+  })
 
 //login
   router.post('/login', function(req, res){
@@ -42,11 +43,11 @@ module.exports = function (app) {
   })
 
   //Logout
-  // router.get('/logout', function(req, res){
-  //   req.session.login = 'logout';
-  //   res.status(200);
-  //   res.redirect('/index.html');
-  // })
+  router.get('/logout', function(req, res){
+    req.session.login = 'logout';
+    res.status(200);
+    res.redirect('/index.html');
+  })
 
   return router;
 };
