@@ -17,7 +17,7 @@ module.exports = function(app){
   router.get('/:id', function (req, res) {
       res.status(200);
 
-      console.log(req.query.id);
+      console.log("!!"+req.query.id);
   })
 
 
@@ -49,7 +49,7 @@ module.exports = function(app){
     var queryString = 'select * from Nanum'
     connection.query(queryString, function (error2, data) {
         if (error2) {
-            console.log(error2);
+            console.log("???"+error2);
             res.redirect('/');
         } else {
           res.render('services', {
