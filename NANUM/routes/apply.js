@@ -33,11 +33,7 @@ module.exports = function(app){
           if (err) {
               console.log(err);
           }
-          else{
-              res.send('<script type="text/javascript">alert("나눔이 정상적으로 등록되었습니다.");</script>');
-          }
       });
-
       res.redirect("/apply/init");
     })
 
