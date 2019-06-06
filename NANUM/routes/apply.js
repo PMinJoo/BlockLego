@@ -62,34 +62,34 @@ module.exports = function(app){
             res.redirect('/');
         }
         else if(!data[0]){
-          connection.query('UPDATE Nanum SET quantity = quantity - 1 WHERE nanum_id=?', [req.params.id], function (error2) {
-              if (error2) {
-                  console.log("error:" + error2);
-                  res.redirect('/');
-              } else {
-              }
-          });
-          var queryString = 'select * from Nanum where nanum_id=?'
-          connection.query(queryString, [req.params.id], function (error2, data) {
-              if (error2) {
-                  console.log("???"+error2);
-                  res.redirect('/');
-              } else {
-                randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
-                var queryString = 'insert into NanumList (auth_number, nanum_id, student_id, nanumer_id, kind, title, place, nanum_date, is_received) values (?, ?, ?, ?, ?, ?, ?, ?, ?)'
-                var params = [randomNumber, req.params.id, req.session.userID, data[0].writer, data[0].kind, data[0].title, data[0].place, data[0].nanum_date, 0];
-                connection.query(queryString, params, function (error2, rows) {
+                connection.query('UPDATE Nanum SET quantity = quantity - 1 WHERE nanum_id=?', [req.params.id], function (error2) {
                     if (error2) {
-                        console.log("error2:" + error2);
+                        console.log("error:" + error2);
                         res.redirect('/');
-                    }
-                    else{
-                      res.redirect('/apply/init');
+                    } else {
                     }
                 });
+                var queryString = 'select * from Nanum where nanum_id=?'
+                connection.query(queryString, [req.params.id], function (error2, data) {
+                    if (error2) {
+                        console.log("???"+error2);
+                        res.redirect('/');
+                    } else {
+                      randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
+                      var queryString = 'insert into NanumList (auth_number, nanum_id, student_id, nanumer_id, kind, title, place, nanum_date, is_received) values (?, ?, ?, ?, ?, ?, ?, ?, ?)'
+                      var params = [randomNumber, req.params.id, req.session.userID, data[0].writer, data[0].kind, data[0].title, data[0].place, data[0].nanum_date, 0];
+                      connection.query(queryString, params, function (error2, rows) {
+                          if (error2) {
+                              console.log("error2:" + error2);
+                              res.redirect('/');
+                          }
+                          else{
+                            res.redirect('/apply/init');
+                          }
+                      });
+                    }
+                  });
               }
-        }
-      }
       else {
           res.send('<script type="text/javascript">alert("이미 신청한 나눔입니다.");</script>');
       }
