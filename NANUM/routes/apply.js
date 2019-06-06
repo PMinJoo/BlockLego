@@ -69,12 +69,13 @@ module.exports = function(app){
     connection.query(queryString, params, function (err, rows) {
         if (err) {
             console.log(err);
+            res.redirect('/');
         }
         else{
-          res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");document.location.href="/services.html";</script>');
+          res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");</script>');
+          res.redirect("/apply/init");
         }
     });
-    res.redirect("/apply/init");
   })
 
   router.get('/init', function(req, res){
