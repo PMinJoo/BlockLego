@@ -27,8 +27,8 @@ module.exports = function(app){
   })
 
   router.get('/initMynanum', function(req, res){
-    var queryString = 'select title, kind, place, nanum_date, auth_number, is_received from Nanum join NanumList on writer=? and nanumer_id=?'
-    connection.query(queryString, [req.session.userID, req.session.userID], function (error2, data) {
+    var queryString = 'select * from NanumList where nanumer_id=?'
+    connection.query(queryString, [req.session.userID], function (error2, data) {
         if (error2) {
             console.log("???"+error2);
             res.redirect('/');
