@@ -98,8 +98,6 @@ module.exports = function(app){
 
     })
 
-  })
-
   router.get('/init', function(req, res){
     var queryString = 'select * from Nanum'
     connection.query(queryString, function (error2, data) {
