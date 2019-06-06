@@ -67,7 +67,7 @@ module.exports = function(app){
     var queryString = 'insert into NanumList (auth_number, nanumlist_id, student_id, nanumer_id, is_received) values (?, ?, ?, ?, ?)'
     var params = [randomNumber, req.params.id, req.session.userID, 'test2', 0];
     connection.query(queryString, params, function (error2, rows) {
-        if (err) {
+        if (error2) {
             console.log(error2);
             res.redirect('/');
         }
