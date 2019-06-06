@@ -48,7 +48,7 @@ module.exports = function(app){
       var params = [randomNumber, title, req.session.userID, day, kind, number, area, nanumday];
       connection.query(queryString, params, function (err, rows) {
           if (err) {
-              console.log(err);
+              console.log("err:" + err);
           }
       });
       res.redirect("/apply/init");
@@ -58,7 +58,7 @@ module.exports = function(app){
     res.status(200);
     connection.query('UPDATE Nanum SET quantity = quantity - 1 WHERE nanum_id=?', [req.params.id], function (error2) {
         if (error2) {
-            console.log(error2);
+            console.log("error:" + error2);
             res.redirect('/');
         } else {
         }
@@ -68,11 +68,10 @@ module.exports = function(app){
     var params = [randomNumber, req.params.id, req.session.userID, 'test2', 0];
     connection.query(queryString, params, function (error2, rows) {
         if (error2) {
-            console.log(error2);
+            console.log("error2:" + error2);
             res.redirect('/');
         }
         else{
-          res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");</script>');
           res.redirect('/apply/init');
         }
     });
