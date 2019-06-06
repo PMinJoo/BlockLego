@@ -139,7 +139,7 @@
 					<tbody>
 						<% var i = 1 %>
 						<% data.forEach(function (mypage, index){ %>
-						<form method="post" action="/mypage">
+						<form method="post" action="/mypage/check/<%= mypage.nanum_id%>">
 						<tr>
 							<th scope="row"><%= i %></th>
 							<td><%= mypage.title %></td>
@@ -148,7 +148,7 @@
 							<td><%= mypage.nanum_date %></td>
 							<td>@<%= mypage.auth_number %></td>
 							<% if(mypage.is_received == 0){ %>
-							<td><button type="button" href="/mypage/check/<%= mypage.nanum_id%>" class="btn btn-danger">Check</button></td>
+							<td><button type="submit" class="btn btn-danger">Check</button></td>
 							<% } else { %>
 							<td><button type="button" class="btn btn-success" disabled>Complete</button></td>
 							<% } %>
