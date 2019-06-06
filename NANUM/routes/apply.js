@@ -63,18 +63,28 @@ module.exports = function(app){
         } else {
         }
     });
-    randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
-    var queryString = 'insert into NanumList (auth_number, nanumlist_id, student_id, nanumer_id, is_received) values (?, ?, ?, ?, ?)'
-    var params = [randomNumber, req.params.id, req.session.userID, 'test2', 0];
-    connection.query(queryString, params, function (error2, rows) {
+    var queryString = 'select writer from Nanum where nanum_id=?'
+    connection.query(queryString, [req.params.id], function (error2, data) {
         if (error2) {
-            console.log("error2:" + error2);
+            console.log("???"+error2);
             res.redirect('/');
+        } else {
+          randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
+          var queryString = 'insert into NanumList (auth_number, nanumlist_id, student_id, nanumer_id, is_received) values (?, ?, ?, ?, ?)'
+          var params = [randomNumber, req.params.id, req.session.userID, data[0].writer, 0];
+          connection.query(queryString, params, function (error2, rows) {
+              if (error2) {
+                  console.log("error2:" + error2);
+                  res.redirect('/');
+              }
+              else{
+                res.redirect('/apply/init');
+              }
+          });
         }
-        else{
-          res.redirect('/apply/init');
-        }
-    });
+
+    })
+
   })
 
   router.get('/init', function(req, res){
