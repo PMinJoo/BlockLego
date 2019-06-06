@@ -63,7 +63,7 @@ module.exports = function(app){
         } else {
         }
     });
-    var queryString = 'select writer from Nanum where nanum_id=?'
+    var queryString = 'select * from Nanum where nanum_id=?'
     connection.query(queryString, [req.params.id], function (error2, data) {
         if (error2) {
             console.log("???"+error2);
