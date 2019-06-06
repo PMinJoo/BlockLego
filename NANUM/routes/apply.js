@@ -55,9 +55,17 @@ module.exports = function(app){
     })
 
   router.post('/regist/:id', function(req, res){
+    res.status(200);
+    connection.query('UPDATE Nanum SET quantity = quantity - 1 WHERE nanum_id=?', [req.params.id], function (error2) {
+        if (error2) {
+            console.log(error2);
+            res.redirect('/');
+        } else {
+        }
+    });
     randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
     var queryString = 'insert into NanumList (auth_number, nanumlist_id, student_id, nanumer_id, is_received) values (?, ?, ?, ?, ?)'
-    var params = [randomNumber, 'nanumid', 'test1', 'test2', 0];
+    var params = [randomNumber, req.params.id, req.session.userID, 'test2', 0];
     connection.query(queryString, params, function (err, rows) {
         if (err) {
             console.log(err);
