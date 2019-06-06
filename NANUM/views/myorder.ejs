@@ -137,33 +137,23 @@
 				    </tr>
 				  </thead>
 				  <tbody>
+						<% var i = 1 %>
+						<% data.forEach(function(mypage, index){ %>
 				    <tr>
-				      <th scope="row">1</th>
-				      <td>Mark</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				      <td>@mdo</td>
+				      <th scope="row"><%= i %></th>
+				      <td><%= myorder.title %></td>
+				      <td><%= myorder.kind %></td>
+				      <td><%= myorder.nanum_date %></td>
+				      <td><%= myorder.place %></td>
+				      <td>@<%= myorder.auth_number %></td>
+							<% if(mypage.is_received == 0){ %>
+							<td><button type="button" class="btn btn-outline-danger" disabled>Not received</button></td>
+							<% } else { %>
+				      <td><button type="button" class="btn btn-outline-dark" disabled>Received</button></td>
+							<% } %>
+							<% i++ %>
 				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>Jacob</td>
-				      <td>Thornton</td>
-				      <td>@fat</td>
-				      <td>@mdo</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>Larry</td>
-				      <td>the Bird</td>
-				      <td>@twitter</td>
-				      <td>@mdo</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
-				    </tr>
+				    <% }) %>
 				  </tbody>
 				</table>
 				<br><br><br><br><br>
