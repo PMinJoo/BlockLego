@@ -72,12 +72,21 @@ module.exports = function(app){
   })
 
   router.get('/initMonitoring', function(req, res){
-    res.status(200);
-    res.render('monitoring', {
-      url: req.url,
-      login: req.session.login,
-      userid: req.session.userID,
-    });
+    var queryString = 'select * from NanumList where login_id=? order by login_date'
+    connection.query(queryString, [req.session.userID], function (error2, data) {
+        if (error2) {
+            console.log("???"+error2);
+            res.redirect('/');
+        }
+        else{
+            res.render('monitoring', {
+              url: req.url,
+              login: req.session.login,
+              userid: req.session.userID,
+              data: data,
+            });
+        }
+    })
   })
 
 

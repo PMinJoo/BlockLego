@@ -128,36 +128,24 @@
 					<thead>
 						<tr>
 							<th scope="col">#</th>
-							<th scope="col">Title</th>
-							<th scope="col">Subject</th>
-							<th scope="col">Customer Number</th>
+							<th scope="col">Date</th>
 							<th scope="col">Check</th>
 						</tr>
 					</thead>
 					<tbody>
-						<form method="post" action="/mypage">
+						<% var i = 1 %>
+						<% data.forEach(function(monitoring, index){ %>
 						<tr>
-							<th scope="row">1</th>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td>@mdo</td>
-							<td><button type="submit" class="btn btn-outline-danger">Check</button></td>
+							<th scope="row"><%= i %></th>
+							<td><%= monitoring.login_date %></td>
+							<% if(monitoring.login_pf == 1){ %>
+							<td><button type="button" class="btn btn-outline-success" disabled>Login Success</button></td>
+							<% } else { %>
+							<td><button type="button" class="btn btn-outline-danger" disabled>Login Fail</button></td>
+							<% } %>
+							<% i++ %>
 						</tr>
-					</form>
-						<tr>
-							<th scope="row">2</th>
-							<td>Jacob</td>
-							<td>Thornton</td>
-							<td>@fat</td>
-							<td>Otto</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td>Larry</td>
-							<td>the Bird</td>
-							<td>@twitter</td>
-							<td>Otto</td>
-						</tr>
+						<% }) %>
 					</tbody>
 				</table>
 				<br><br><br><br><br>
