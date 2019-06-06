@@ -54,8 +54,8 @@ module.exports = function(app){
       res.redirect("/apply/init");
     })
 
-  router.post('/regist', function(req, res){
-    var nanumid = req.apply.nanum_id;
+  router.post('/regist/:id', function(req, res){
+    var nanumid = req.params.id;
     var queryString = 'select * from Nanum where nanum_id=?'
     connection.query(queryString, [nanumid], function (error2, data) {
         if (error2) {
