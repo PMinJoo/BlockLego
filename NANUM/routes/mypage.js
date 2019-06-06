@@ -34,12 +34,20 @@ module.exports = function(app){
             res.redirect('/');
         }
         else{
-            res.render('mypage', {
-              url: req.url,
-              login: req.session.login,
-              userid: req.session.userID,
-              data: data,
-            });
+          var queryString = 'select * from Nanum where nanum_id=?'
+          connection.query(queryString, [data[0].nanum_id], function (error2, data2) {
+              if (error2) {
+                  console.log("???"+error2);
+                  res.redirect('/');
+              }
+              else{
+                  res.render('mypage', {
+                    url: req.url,
+                    login: req.session.login,
+                    userid: req.session.userID,
+                    data: data+data2,
+                  });
+              }
         }
     })
 
