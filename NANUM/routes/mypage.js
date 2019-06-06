@@ -22,7 +22,7 @@ module.exports = function(app){
     });
   })
 
-  router.get('/check/:id', function(req, res){
+  router.post('/check/:id', function(req, res){
     //수령 버튼(check) 누르면 실행되는 곳
     res.status(200);
     connection.query('UPDATE NanumList SET is_received = 1 WHERE nanum_id=?', [req.params.id], function(error){
