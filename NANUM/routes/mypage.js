@@ -43,7 +43,7 @@ module.exports = function(app){
             res.redirect('/');
         }
         else{
-            res.render('myorder', {
+            res.render('mypage', {
               url: req.url,
               login: req.session.login,
               userid: req.session.userID,
@@ -61,7 +61,7 @@ module.exports = function(app){
             res.redirect('/');
         }
         else{
-            res.render('mypage', {
+            res.render('myorder', {
               url: req.url,
               login: req.session.login,
               userid: req.session.userID,
