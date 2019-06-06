@@ -51,7 +51,7 @@ module.exports = function(app){
             })
           }
   })
-}
+})
 
   router.get('/initMyorder', function(req, res){
     res.status(200);
