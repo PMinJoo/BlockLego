@@ -89,9 +89,10 @@ module.exports = function(app){
                 });
               }
         }
-        else {
-            res.send('<script type="text/javascript">alert("이미 신청한 나눔입니다.");</script>');
-        }
+      }
+      else {
+          res.send('<script type="text/javascript">alert("이미 신청한 나눔입니다.");</script>');
+      }
     });
 
 
