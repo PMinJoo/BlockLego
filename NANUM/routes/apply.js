@@ -56,26 +56,17 @@ module.exports = function(app){
 
   router.post('/regist/:id', function(req, res){
     var nanumid = req.params.id;
-    var queryString = 'select * from Nanum where nanum_id=?'
-    connection.query(queryString, [nanumid], function (error2, data) {
-        if (error2) {
-            console.log("???"+error2);
-            res.redirect('/');
-        } else {
-          randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
-          var writer = req.params.writer;
-          var queryString = 'insert into NanumList (auth_number, nanumlist_id, student_id, nanumer_id, is_received) values (?, ?, ?, ?, ?)'
-          var params = [randomNumber, nanumid, req.session.userID, writer, 0];
-          connection.query(queryString, params, function (err, rows) {
-              if (err) {
-                  console.log(err);
-              }
-              else{
-                res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");document.location.href="/services.html";</script>');
-              }
-          });
+    randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
+    var queryString = 'insert into NanumList (auth_number, nanumlist_id, student_id, nanumer_id, is_received) values (?, ?, ?, ?, ?)'
+    var params = [randomNumber, nanumid, req.session.userID, 'test', 0];
+    connection.query(queryString, params, function (err, rows) {
+        if (err) {
+            console.log(err);
         }
-    })
+        else{
+          res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");document.location.href="/services.html";</script>');
+        }
+    });
     res.redirect("/apply/init");
   })
 
