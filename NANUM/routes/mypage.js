@@ -72,7 +72,7 @@ module.exports = function(app){
   })
 
   router.get('/initMonitoring', function(req, res){
-    var queryString = 'select * from NanumList where login_id=? order by login_date'
+    var queryString = 'select * from Monitor where login_id=? order by login_date'
     connection.query(queryString, [req.session.userID], function (error2, data) {
         if (error2) {
             console.log("???"+error2);
