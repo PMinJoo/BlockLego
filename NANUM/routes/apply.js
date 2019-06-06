@@ -54,7 +54,7 @@ module.exports = function(app){
       res.redirect("/apply/init");
     })
 
-  router.get('/regist/:id', function(req, res){
+  router.post('/regist', function(req, res){
     res.status(200);
     connection.query('UPDATE Nanum SET quantity = quantity - 1 WHERE nanum_id=?', [req.params.id], function (error2) {
         if (error2) {
@@ -73,7 +73,11 @@ module.exports = function(app){
         }
         else{
           res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");</script>');
-          res.redirect("/mypage/initMyorder");
+          res.render('/apply/init', {
+              url: req.url,
+              login: req.session.login,
+              userid: req.session.userID,
+          });
         }
     });
   })
