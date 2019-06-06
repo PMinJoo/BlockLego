@@ -133,14 +133,12 @@
 					<p>Please register the things you can share with your students.</p>
 				</div><!-- Section Header /-  -->
 					<% data.forEach(function (apply, index){ %>
-			<form method="get" action="/apply/regist/<%= apply.nanum_id%>">
-				<div class="menu-box">
-					<h3><%= apply.title %><span>Up to <%= apply.quantity %> people</span></h3>
-					<p><%= apply.kind %> | <%= apply.place %> | <%= apply.nanum_date %><br>
-					<%= apply.write_date %> | <%= apply.writer %></p>
-					<button type="submit" class="btn btn-outline-danger">Apply Now</button>
-				</div>
-			</form>
+						<div class="menu-box">
+							<h3><%= apply.title %><span>Up to <%= apply.quantity %> people</span></h3>
+							<p><%= apply.kind %> | <%= apply.place %> | <%= apply.nanum_date %><br>
+							<%= apply.write_date %> | <%= apply.writer %></p>
+							<a href="/apply/regist/<%= apply.nanum_id%>" class="btn btn-sm btn-block btn-primary">Apply Now</a>
+						</div>
 			<% })%>
 
 			<center>
