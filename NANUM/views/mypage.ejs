@@ -148,7 +148,7 @@
 							<td><%= mypage.nanum_date %></td>
 							<td>@<%= mypage.auth_number %></td>
 							<% if(mypage.is_received == 0){ %>
-							<td><button type="button" href="/mypage/check" class="btn btn-danger">Check</button></td>
+							<td><button type="button" href="/mypage/check/<%= mypage.nanum_id%>" class="btn btn-danger">Check</button></td>
 							<% } else { %>
 							<td><button type="button" class="btn btn-success" disabled>Complete</button></td>
 							<% } %>
