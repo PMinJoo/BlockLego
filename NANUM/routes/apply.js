@@ -70,8 +70,8 @@ module.exports = function(app){
             res.redirect('/');
         } else {
           randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
-          var queryString = 'insert into NanumList (auth_number, nanum_id, student_id, nanumer_id, is_received) values (?, ?, ?, ?, ?)'
-          var params = [randomNumber, req.params.id, req.session.userID, data[0].writer, 0];
+          var queryString = 'insert into NanumList (auth_number, nanum_id, student_id, nanumer_id, kind, title, place, nanum_date, is_received) values (?, ?, ?, ?, ?, ?, ?, ?, ?)'
+          var params = [randomNumber, req.params.id, req.session.userID, data[0].writer, data[0].kind, data[0].title, data[0].place, data[0].nanum_date, 0];
           connection.query(queryString, params, function (error2, rows) {
               if (error2) {
                   console.log("error2:" + error2);
