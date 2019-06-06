@@ -81,7 +81,7 @@ module.exports = function (app) {
   router.get('/logout', function(req, res){
     req.session.login = 'logout';
     res.status(200);
-    res.redirect('/index.html');
+    res.redirect('/');
     console.log(req.session.login);
   })
 
