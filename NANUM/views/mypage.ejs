@@ -138,7 +138,7 @@
 					</thead>
 					<tbody>
 						<% var i = 1 %>
-						<% data.forEach(function (mypage, index){ %>
+						<% data.forEach(function (mypage, 6){ %>
 						<form method="post" action="/mypage">
 						<tr>
 							<th scope="row"><%= i %></th>
@@ -150,9 +150,10 @@
 							<% if(mypage.is_received == 0){ %>
 							<td><button type="button" href="/mypage/check" class="btn btn-danger">Check</button></td>
 							<% } %>
-							<% else %>
+							<% else { %>
 							<td><button type="button" class="btn btn-secondary" disabled>Complete</button></td>
 							<% } %>
+							<% i++ %>
 						</tr>
 					</form>
 					<% })%>
