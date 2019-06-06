@@ -54,7 +54,7 @@ module.exports = function(app){
       res.redirect("/apply/init");
     })
 
-  router.post('/regist', function(req, res){
+  router.post('/regist/:id', function(req, res){
     res.status(200);
     connection.query('UPDATE Nanum SET quantity = quantity - 1 WHERE nanum_id=?', [req.params.id], function (error2) {
         if (error2) {
