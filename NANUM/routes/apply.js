@@ -54,12 +54,16 @@ module.exports = function(app){
       res.redirect("/apply/init");
     })
 
-  router.post('/regist/:id', function(req, res){
+  router.get('/regist/:id', function(req, res){
     res.status(200);
     connection.query('UPDATE Nanum SET quantity = quantity - 1 WHERE nanum_id=?', [req.params.id], function (error2) {
         if (error2) {
             console.log(error2);
-            res.redirect('/');
+            res.render('services', {
+        			url: req.url,
+              login: req.session.login,
+              userid: req.session.userID,
+            });
         } else {
         }
     });
@@ -69,14 +73,18 @@ module.exports = function(app){
     connection.query(queryString, params, function (error2, rows) {
         if (err) {
             console.log(error2);
-            res.redirect('/');
+            res.render('services', {
+        			url: req.url,
+              login: req.session.login,
+              userid: req.session.userID,
+            });
         }
         else{
           res.send('<script type="text/javascript">alert("신청이 완료되었습니다. 신청 번호: '+randomNumber+'");</script>');
-          res.render('/apply/init', {
-              url: req.url,
-              login: req.session.login,
-              userid: req.session.userID,
+          res.render('services', {
+            url: req.url,
+            login: req.session.login,
+            userid: req.session.userID,
           });
         }
     });

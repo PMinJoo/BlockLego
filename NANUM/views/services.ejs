@@ -130,7 +130,7 @@
 							<h3><%= apply.title %><span>Up to <%= apply.quantity %> people</span></h3>
 							<p><%= apply.kind %> | <%= apply.place %> | <%= apply.nanum_date %><br>
 							<%= apply.write_date %> | <%= apply.writer %></p>
-							<a href="#" onclick="document.Form.submit();">Apply Now</a>
+							<a href="/apply/regist/<%= apply.nanum_id%>" title="Order Now">Apply Now</a>
 						</div>
 					</form>
 			<% })%>
