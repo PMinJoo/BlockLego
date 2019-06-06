@@ -130,7 +130,14 @@
 							<p><%= apply.kind %> | <%= apply.place %> | <%= apply.nanum_date %><br>
 							<%= apply.write_date %> | <%= apply.writer %></p>
 							<a href="/apply/regist/<%= apply.nanum_id%>" title="Order Now"
-								<% if(apply.quantity == 0){ %>onclick="alert('이미 마감된 나눔입니다.');return false;"<% } else {alert("신청되었습니다.");return true;} %>)">
+								<% if(apply.quantity == 0){ %>
+									onclick="alert('이미 마감된 나눔입니다.');
+									return false;"
+									<% }
+									else {%>
+										onclick="alert('신청되었습니다.');
+										return true;"
+										<% } %>)">
 								Apply Now</a>
 						</div>
 			<% })%>
