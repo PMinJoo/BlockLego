@@ -48,11 +48,10 @@ module.exports = function(app){
                     data: data+data2,
                   });
               }
-        }
-    })
-
-
+            })
+          }
   })
+}
 
   router.get('/initMyorder', function(req, res){
     res.status(200);
