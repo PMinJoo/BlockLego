@@ -56,7 +56,7 @@ module.exports = function(app){
 
   router.get('/regist/:id', function(req, res){
     res.status(200);
-    connection.query('select * from NanumList where nanum_id=? and student_id=?', [req.params.id, req.session.userID], function (error2) {
+    connection.query('select auth_number from NanumList where nanum_id=? and student_id=?', [req.params.id, req.session.userID], function (error2, data) {
         if (error2) {
             console.log("error:" + error2);
             res.redirect('/');
