@@ -58,7 +58,7 @@ module.exports = function(app){
     var nanumid = req.params.id;
     randomNumber = Math.floor(Math.random() * (99999999-11111111))+11111111;
     var queryString = 'insert into NanumList (auth_number, nanumlist_id, student_id, nanumer_id, is_received) values (?, ?, ?, ?, ?)'
-    var params = [randomNumber, nanumid, req.session.userID, 'test', 0];
+    var params = [randomNumber, nanumid, 'test1', 'test2', 0];
     connection.query(queryString, params, function (err, rows) {
         if (err) {
             console.log(err);
