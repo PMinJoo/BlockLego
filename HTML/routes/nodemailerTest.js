@@ -88,7 +88,7 @@ module.exports = function (app) {
         console.log(error2);
       } else{
         key += data[0].count;
-        console.log("key 값은: "key);
+        console.log("key 값은: "+key);
       }
     });
     let inputName = req.body.inputName;
