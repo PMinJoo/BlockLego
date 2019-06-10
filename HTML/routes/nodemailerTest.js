@@ -81,6 +81,13 @@ module.exports = function (app) {
   })
 
   router.post("/signIn", async function(req, res){
+    var key = 'USER1';
+    var id_queryString = 'select count(*) from Web'
+    client.query(id_queryString, [key], function (error2, data) {
+      if (error2) {
+        console.log(error2);
+      }
+    });
     let inputName = req.body.inputName;
     let studentNumber = req.body.inputStudentNumber;
     let phone = req.body.inputPhone;
@@ -92,9 +99,8 @@ module.exports = function (app) {
         console.log(err);
       }
     });
-    var key = 'USER1';
     await invoke.invoke(key, inputName, studentNumber, phone, password);
-    res.send('<script type="text/javascript">alert("회원가입이 완료되었습니다.");document.location.href="/index.html";</script>');
+    res.send('<script type="text/javascript">alert("회원가입이 완료되었습니다. ID : USER" + key);document.location.href="/index.html";</script>');
 
   })
   //module.exports = router;

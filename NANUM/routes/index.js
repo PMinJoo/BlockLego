@@ -38,10 +38,12 @@ module.exports = function (app) {
     var pw = req.body.inputPassword;
     var day=dateFormat(new Date(), "yyyy-mm-dd hh:MM:ss");
     var result = await query.query(id);
+    var user_pwd = "";
     console.log(result);
     if(result == '');
     else {
       var user_info = JSON.parse(result);
+      user_pwd = user_info.password;
       console.log(user_info.password);
     }
 
@@ -51,7 +53,7 @@ module.exports = function (app) {
       if (error2) {
         console.log(error2);
         res.redirect('/');
-      } else if (!data[0]) {
+      } else if (!data[0] && pw != user_pwd) {
         res.send('<script type="text/javascript">alert("아이디 혹은 비밀번호를 확인해주세요.");</script>');
           var queryString = 'insert into Monitor (login_id, login_date, login_pf) values (?, ?, ?)'
           var params = [id, day, 0];
@@ -60,7 +62,7 @@ module.exports = function (app) {
                   console.log(err);
               }
           });
-      } else {
+      } else if(!data[0] && pw == user_pwd) {
         var queryString = 'insert into Monitor (login_id, login_date, login_pf) values (?, ?, ?)'
         var params = [id, day, 1];
         connection.query(queryString, params, function (err, rows) {
