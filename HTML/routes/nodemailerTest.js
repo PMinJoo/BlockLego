@@ -103,7 +103,11 @@ module.exports = function (app) {
       }
     });
     await invoke.invoke(key, inputName, studentNumber, phone, password);
+<<<<<<< HEAD
     res.send('<script type="text/javascript">var c = "<%- JSON.stringify(key) %>"; alert("회원가입이 완료되었습니다." + c);document.location.href="/index.html";</script>');
+=======
+    res.send('<script type="text/javascript">var c = "<%- JSON.stringify(myVar) %>"; alert("회원가입이 완료되었습니다." + c);document.location.href="/index.html";</script>');
+>>>>>>> 15f52ebc6d456736ec8a45e802377b184d9e4d6e
   })
   //module.exports = router;
 
