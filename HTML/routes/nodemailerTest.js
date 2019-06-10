@@ -81,11 +81,14 @@ module.exports = function (app) {
   })
 
   router.post("/signIn", async function(req, res){
-    var key = 'USER1';
+    var key = 'USER';
     var id_queryString = 'select count(*) from Web'
-    client.query(id_queryString, [key], function (error2, data) {
+    client.query(id_queryString, function (error2, data) {
       if (error2) {
         console.log(error2);
+      } else{
+        key+=data[0];
+        console.log(key);
       }
     });
     let inputName = req.body.inputName;
