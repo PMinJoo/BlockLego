@@ -81,16 +81,6 @@ module.exports = function (app) {
   })
 
   router.post("/signIn", async function(req, res){
-    var key = 'USER';
-    var id_queryString = 'select count(*) as count from Web';
-    client.query(id_queryString, function (error2, data) {
-      if (error2) {
-        console.log(error2);
-      } else{
-        key += data[0].count;
-        console.log("key 값은: "+key);
-      }
-    });
     let inputName = req.body.inputName;
     let studentNumber = req.body.inputStudentNumber;
     let phone = req.body.inputPhone;
@@ -100,6 +90,16 @@ module.exports = function (app) {
     client.query(queryString, params, function (err, rows) {
       if (err) {
         console.log(err);
+      }
+    });
+    var key = 'USER';
+    var id_queryString = 'select count(*) as count from Web';
+    client.query(id_queryString, function (error2, data) {
+      if (error2) {
+        console.log(error2);
+      } else{
+        key += data[0].count;
+        console.log("key 값은: "+key);
       }
     });
     await invoke.invoke(key, inputName, studentNumber, phone, password);
