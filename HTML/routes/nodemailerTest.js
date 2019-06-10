@@ -103,7 +103,8 @@ module.exports = function (app) {
       }
     });
     await invoke.invoke(key, inputName, studentNumber, phone, password);
-    res.send('<script type="text/javascript">alert("#{key}");document.location.href="/index.html";</script>');
+    alert("hello");
+    //res.send('<script type="text/javascript">alert("#{key}");document.location.href="/index.html";</script>');
   })
   //module.exports = router;
 
