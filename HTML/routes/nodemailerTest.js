@@ -39,7 +39,7 @@ module.exports = function (app) {
             subject: 'BlockLego에서 발송한 확인 메일입니다.',
             text: '홈페이지로 돌아가 인증번호를 입력해 주세요 : ' + randomNumber
           };
-
+          console.log(randomNumber);
           transporter.sendMail(mailOptions, function(err, info){
             if(error){
               console.log(error);
