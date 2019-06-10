@@ -6,6 +6,7 @@ module.exports = function (app) {
   var mysql = require('mysql');
   let randomNumber = 000000;
   let email;
+  var invoke = require('../../hyperledger/fabric-samples/fabcar/invoke.js');
 
   var client = mysql.createConnection({
       host: "localhost", //서버 로컬 IP
@@ -79,7 +80,7 @@ module.exports = function (app) {
     //res.redirect("userRegister.html");
   })
 
-  router.post("/signIn", function(req, res){
+  router.post("/signIn", async function(req, res){
     let inputName = req.body.inputName;
     let studentNumber = req.body.inputStudentNumber;
     let phone = req.body.inputPhone;
@@ -91,6 +92,8 @@ module.exports = function (app) {
         console.log(err);
       }
     });
+    var key = 'USER1';
+    await invoke.invoke(key, inputName, studentNumber, phone, password);
     res.send('<script type="text/javascript">alert("회원가입이 완료되었습니다.");document.location.href="/index.html";</script>');
 
   })

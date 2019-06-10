@@ -5,6 +5,7 @@ module.exports = function (app) {
   var JSAlert = require("js-alert");
   var url = require('url');
   var dateFormat = require('dateformat');
+  var query = require('../../hyperledger/fabric-samples/fabcar/query.js');
 
   var connection = mysql.createConnection({
       host: "localhost", //서버 로컬 IP
@@ -32,10 +33,12 @@ module.exports = function (app) {
   })
 
 //login
-  router.post('/login', function(req, res){
+  router.post('/login', async function(req, res){
     var id = req.body.inputId;
     var pw = req.body.inputPassword;
     var day=dateFormat(new Date(), "yyyy-mm-dd hh:MM:ss");
+    var result = await query.query(id);
+    console.log(result);
 		res.status(200);
     var queryString = 'select * from Web where dongguk_webmail=?'
     connection.query(queryString, [id], function (error2, data) {
