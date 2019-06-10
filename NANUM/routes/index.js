@@ -38,11 +38,11 @@ module.exports = function (app) {
     var pw = req.body.inputPassword;
     var day=dateFormat(new Date(), "yyyy-mm-dd hh:MM:ss");
     var result = await query.query(id);
-
+    console.log(result);
     if(result == '');
     else {
       var user_info = JSON.parse(result);
-      console.log(user_info.pw);
+      console.log(user_info.password);
     }
 
 		res.status(200);
