@@ -38,7 +38,13 @@ module.exports = function (app) {
     var pw = req.body.inputPassword;
     var day=dateFormat(new Date(), "yyyy-mm-dd hh:MM:ss");
     var result = await query.query(id);
-    console.log(result);
+
+    if(result == '');
+    else {
+      var user_info = JSON.parse(result);
+      console.log(user_info.pw);
+    }
+
 		res.status(200);
     var queryString = 'select * from Web where dongguk_webmail=?'
     connection.query(queryString, [id], function (error2, data) {
