@@ -108,6 +108,7 @@ module.exports = function (app) {
   //module.exports = router;
 
   router.get('/joincpl', function(req, res){
+    res.status(200);
     res.render('join_cpl', {
       url: req.url,
     });
