@@ -104,14 +104,9 @@ module.exports = function (app) {
       }
     });
     await invoke.invoke(key, inputName, studentNumber, phone, password);
-    res.send('<script type="text/javascript">alert("가입을 완료하였습니다.");document.location.href="/index.html";</script>');
+    res.send('<script type="text/javascript">alert("가입을 완료하였습니다. 회원님의 아이디는 '+ key +'");document.location.href="/index.html";</script>');
   })
   //module.exports = router;
-
-  router.get('/complete', function(req, res){
-  res.send('<script type="text/javascript">alert("가입을 완료하였습니다. 회원님의 아이디는'+ key +'");document.location.href="/index.html";</script>');
-  })
-
 
   return router;
 };
