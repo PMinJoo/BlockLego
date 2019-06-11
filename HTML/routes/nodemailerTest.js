@@ -6,6 +6,7 @@ module.exports = function (app) {
   var mysql = require('mysql');
   let randomNumber = 000000;
   let email;
+  var key = 'USER';
   var invoke = require('../../hyperledger/fabric-samples/fabcar/invoke.js');
 
   var client = mysql.createConnection({
@@ -92,7 +93,7 @@ module.exports = function (app) {
         console.log(err);
       }
     });
-    var key = 'USER';
+    //var key = 'USER';
     var id_queryString = 'select count(*) as count from Web';
     client.query(id_queryString, function (error2, data) {
       if (error2) {
@@ -106,6 +107,10 @@ module.exports = function (app) {
     res.send('<script type="text/javascript">alert("가입을 완료하였습니다.");document.location.href="/index.html";</script>');
   })
   //module.exports = router;
+
+  router.get('/complete', function(req, res){
+    res.send(key);
+  })
 
 
   return router;
