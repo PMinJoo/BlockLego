@@ -16,6 +16,7 @@ var mysql = require('mysql');
 app.locals.pretty = true; // html code readability
 app.set('views', './views');
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 //app.engine('html', require('ejs').renderFile);
 app.use(expressLayouts);
 //app.use('/user', express.static('uploads'));
