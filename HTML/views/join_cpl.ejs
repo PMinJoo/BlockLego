@@ -12,23 +12,31 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src 'self' http://http://13.125.249.19:3303/nodemailerTest/joincpl">
 
-	<title>NANUMLEGO</title>
+	<title>BlockLego</title>
 
 	<!-- Standard Favicon -->
 	<link rel="icon" type="image/x-icon" href="/images//favicon.ico" />
 
 	<!-- For iPhone 4 Retina display: -->
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images//apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images//apple-touch-icon-114x114-precomposed.png">
 
 	<!-- For iPad: -->
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images//apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images//apple-touch-icon-72x72-precomposed.png">
 
 	<!-- For iPhone: -->
 	<link rel="apple-touch-icon-precomposed" href="/images//apple-touch-icon-57x57-precomposed.png">
 
-	<!-- Custom - Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<!-- Library - Google Font Familys -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i%7cPoppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i%7cRoboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i%7cQuestrial%7cOpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7cPT+Sans:400,400i,700,700i" rel="stylesheet">
+
+	<!-- Library -->
+    <link href="/css/lib.css" rel="stylesheet">
+
+	<!-- Custom - Common CSS -->
+	<link rel="stylesheet" href="/css/rtl.css">
+	<link rel="stylesheet" type="text/css" href="/style.css">
 
 	<!--[if lt IE 9]>
 		<script src="js/html5/respond.min.js"></script>
@@ -36,122 +44,140 @@
 
 </head>
 
-<body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
+
+<body data-offset="200" data-spy="scroll" data-target=".ownavigation">
 	<!-- Loader -->
 	<div id="site-loader" class="load-complete">
 		<div class="loader">
-			<div class="loader-inner ball-clip-rotate">
-				<div></div>
-			</div>
+			<div class="line-scale"><div></div><div></div><div></div><div></div><div></div></div>
 		</div>
 	</div><!-- Loader /- -->
 
-
-
-	<!-- Header -->
-	<header class="header-main container-fluid no-padding">
-		<!-- Navigation -->
-		<div class="menu-block container-fluid no-padding">
-			<!-- Container -->
-			<div class="container">
-				<nav class="navbar ow-navigation">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="/" title="Logo"><h3>NANUM <img src="/images/logo.png" alt="logo"/> LEGO</h3></a>
-					</div>
-				</nav><!-- Navigation -->
-			</div>
-		</div><!-- Container /- -->
-	</header><!-- Header /- -->
-
-	<main class="site-main page-spacing">
-		<!-- Festival Section -->
-		<div class="festival-section container-fluid no-padding">
-			<div class="section-padding"></div>
-			<div class="container">
-				<div class="festival-details-tab">
-					<!-- Tab panes -->
-					<div class="tab-content">
-						<div role="tabpanel" class="tab-pane active" id="partycakes">
-							<div class="festival-content">
-								<h5>Introduction</h5>
-								<img src="/images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>We made a NanumLego using a block chain system. The purpose of a Nanumlego is to allow free exchanges between students. <br>We can deepen student relationships by organizing food events or sharing books that are not needed, and we want to create something that helps each other.</p>
-								<a href="/login" title="Sign In" class="read-more">Sign In</a>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="softcakes">
-							<div class="festival-content">
-								<h5>Verify</h5>
-								<img src="/images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>Identify students by e-mail and allow them to access our page. Only Dongguk University e-mail can be used to get a certificate number, and other e-mails will be rejected.</p>
-								<a href="/login" title="Sign In" class="read-more">Sign In</a>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="cupcakes">
-							<div class="festival-content">
-								<h5>NANUM</h5>
-								<img src="/images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>They exchange goods among students, or they open a snack event and distribute food.
-Through the NanumLego, we can raise the intimacy of students and build a system that helps each other by sharing things that they do not need.</p>
-								<a href="/login" title="Sign In" class="read-more">Sign In</a>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="berrycakes">
-							<div class="festival-content">
-								<h5>Dongguk University</h5>
-								<img src="/images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>It is a unique system that exchanges goods and food among Dongguk University students. If we are finished building this web page, we hope this web page will be posted on the school homepage.</p>
-								<a href="login" title="Sign In" class="read-more">Sign In</a>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="nutcake">
-							<div class="festival-content">
-								<h5>BlockLego</h5>
-								<img src="/images/section-seprator-1.png" alt="section-seprator-1" width="70" height="3" />
-								<p>We are the best team in the corporate community capstone design class.
-In this class, we are working on the task of building an identity verification system by learning block chains and applying Hyper Leisure Fabrics.</p>
-								<a href="login" title="Sign In" class="read-more">Sign In</a>
-							</div>
-						</div>
-					</div>
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#partycakes" aria-controls="partycakes " role="tab" data-toggle="tab"><i><img src="/images/festival-ic-1.png" alt="festival-ic-1" width="37" height="42" /></i>b-chain</a></li>
-						<li role="presentation"><a href="#softcakes" aria-controls="softcakes" role="tab" data-toggle="tab"><i><img src="/images/festival-ic-2.png" alt="festival-ic-2" width="37" height="42" /></i>verify</a></li>
-						<li role="presentation"><a href="#cupcakes" aria-controls="cupcakes" role="tab" data-toggle="tab"><i><img src="/images/festival-ic-3.png" alt="festival-ic-3" width="37" height="42" /></i>nanum</a></li>
-						<li role="presentation"><a href="#berrycakes" aria-controls="berrycakes" role="tab" data-toggle="tab"><i><img src="/images/festival-ic-4.png" alt="festival-ic-4" width="37" height="42" /></i>dgu</a></li>
-						<li role="presentation"><a href="#nutcake" aria-controls="nutcake" role="tab" data-toggle="tab"><i><img src="/images/festival-ic-5.png" alt="festival-ic-5" width="37" height="42" /></i>blocklego</a></li>
+	<!-- Sidebar Menu -->
+	<div class="sidebar-menu">
+		<!-- Logo Block -->
+		<div class="logo-block">
+			<a href="/index.html"><img src="/images/logo.png" alt="Logo" /></a>
+			<p>2019 DGU Capstone Design
+			Personal identity verification</p>
+		</div><!-- Logo Block /- -->
+		<!-- Header Section -->
+		<div class="header_s">
+			<nav class="navbar ownavigation navbar-expand-lg">
+				<a class="image-logo navbar-brand" href="/index.html"><img src="/images/logo.png" alt="Logo" /></a>
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="true" aria-label="Toggle navigation">
+					<i class="fa fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbar">
+					<ul class="navbar-nav">
+						<li class="dropdown">
+							<i class="ddl-switch fa fa-angle-down"></i>
+							<a class="nav-link dropdown-toggle" title="Home" href="index.html">Home</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="index.html" title="Home">Home</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<i class="ddl-switch fa fa-angle-down"></i>
+							<a class="nav-link dropdown-toggle" title="About" href="#">About</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="about.html" title="About Us">About Project</a></li>
+								<li><a class="dropdown-item" href="about2.html" title="About Us">About Team</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<i class="ddl-switch fa fa-angle-down"></i>
+							<a class="nav-link dropdown-toggle" title="Work" href="#">Join</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="single-project.html" title="Single Project">Join Us!</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<i class="ddl-switch fa fa-angle-down"></i>
+							<a class="nav-link dropdown-toggle" title="Services" href="#">Services</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="services.html" title="Services1">Services 1</a></li>
+								<li><a class="dropdown-item" href="services-2.html" title="Services2">Services 2</a></li>
+							</ul>
+						</li>
+						<li><a class="nav-link" title="Contact" href="contact-us.html">Contact</a></li>
 					</ul>
 				</div>
-			</div><!-- Container /- -->
-		</div><!-- Festival Section /- -->
-	</main>
+			</nav>
+		</div><!-- Header Section /- -->
+		<div class="filter-menu"></div>
+		<div class="footer-detail"></div>
+	</div><!-- Sidebar Menu /- -->
 
-	<!-- Bottom Footer -->
-	<div class="bottom-footer container-fluid no-padding">
-		<div class="container">
-			<center><div class="footer-copyright">
-				<p>&copy; Copyrights 2019 NANUMLEGO. All Rights Reserved</p>
-			</div></center>
-		</div>
-	</div><!-- Bottom Footer /- -->
+	<div class="main-container">
 
-	<!-- JQuery v1.11.3 -->
-	<script src="/js/jquery.min.js"></script>
+		<main class="site-main">
+
+			<!-- Page Content -->
+			<div class="page-content">
+
+				<!-- Page Banner -->
+				<div class="container-fluid no-left-padding no-right-padding page-banner">
+					<!-- Container -->
+					<div class="container">
+						<h3>Start BlockLego</h3>
+						<nav class="breadcrumb">
+							<a class="breadcrumb-item" href="index.html">Home</a>
+							<a class="breadcrumb-item" href="#">Join</a>
+							<span class="breadcrumb-item active">Join Us!</span>
+						</nav>
+					</div><!-- Container -->
+				</div><!-- Page Banner /- -->
+
+				<!-- Signle Project -->
+				<div class="container-fluid no-left-padding no-right-padding single-project">
+					<div class="single-content">
+						<div class="row">
+							<h3>Dongguk University Webmail</h3>
+						</div>
+						<form method="post" action="/nodemailerTest">
+
+						  <div class="form-row">
+						    <div class="form-group col-md-6">
+						      <label for="inputEmail">DGU Webmail</label>
+						      <input type="text" class="form-control" name="userEmail" placeholder="동국대학교 웹메일 아이디를 입력해주세요">
+						    </div>
+						  </div>
+							<div class="form-row">
+									<button type="submit" class="btn btn-secondary">Send Email</button>
+							</div>
+
+						</form>
+					</div>
+				</div><!-- Signle Project /- -->
+
+			</div><!-- Page Content /- -->
+
+		</main>
+
+	</div>
+
+	<!-- Footer Section -->
+	<div class="container-fluid footer-main">
+		<h3>Social Network</h3>
+		<ul>
+			<li><a href="http://www.dongguk.edu" target="_blank" title=""><i class="fa fa-university"></i></a></li>
+			<li><a href="https://github.com/PMinJoo/BlockLego" target="_blank" title=""><i class="fa fa-github"></i></a></li>
+			<li><a href="http://ssms.dongguk.edu/" target="_blank" title=""><i class="fa fa-commenting-o"></i></a></li>
+			<li><a href="http://naver.me/FRVSoCJP" target="_blank" title=""><i class="fa fa-map-marker"></i></a></li>
+		</ul>
+		<p>&copy; 2019 BlockLego, Dongguk University</p>
+	</div><!-- Footer Section /- -->
+
+	<!-- JQuery v1.12.4 -->
+	<script src="/js/jquery-1.12.4.min.js"></script>
 
 	<!-- Library - Js -->
-	<script src="/css/libraries/lib.js"></script><!-- Bootstrap JS File v3.3.5 -->
-
-	<!-- Library - Google Map API -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW40y4kdsjsz714OVTvrw7woVCpD8EbLE"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/lib.js"></script>
 
 	<!-- Library - Theme JS -->
 	<script src="/js/functions.js"></script>
+
 </body>
 </html>
