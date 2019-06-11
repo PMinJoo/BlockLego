@@ -109,11 +109,7 @@ module.exports = function (app) {
   //module.exports = router;
 
   router.get('/complete', function(req, res){
-    res.render('../complete.html', {
-      url: req.url,
-      login: req.session.login,
-      userid: req.session.userID,
-    });
+    res.send("회원님의 아이디는 " + key + "입니다.")
   })
 
 
