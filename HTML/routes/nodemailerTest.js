@@ -6,7 +6,6 @@ module.exports = function (app) {
   var mysql = require('mysql');
   let randomNumber = 000000;
   let email;
-  var key = 'USER';
   var invoke = require('../../hyperledger/fabric-samples/fabcar/invoke.js');
 
   var client = mysql.createConnection({
@@ -82,6 +81,7 @@ module.exports = function (app) {
   })
 
   router.post("/signIn", async function(req, res){
+    var key = 'USER';
     let inputName = req.body.inputName;
     let studentNumber = req.body.inputStudentNumber;
     let phone = req.body.inputPhone;
