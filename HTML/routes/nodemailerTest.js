@@ -109,7 +109,7 @@ module.exports = function (app) {
   //module.exports = router;
 
   router.get('/complete', function(req, res){
-    res.render('complete',{layout:false} {
+    res.render('../complete.html', {
       url: req.url,
       login: req.session.login,
       userid: req.session.userID,
