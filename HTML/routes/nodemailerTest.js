@@ -95,7 +95,7 @@ module.exports = function (app) {
     });
     //var key = 'USER';
     var id_queryString = 'select count(*) as count from Web';
-    client.query(id_queryString, function (error2, data) {
+    client.query(id_queryString, async function (error2, data) {
       if (error2) {
         console.log(error2);
       } else{
