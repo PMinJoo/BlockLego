@@ -109,7 +109,11 @@ module.exports = function (app) {
   //module.exports = router;
 
   router.get('/complete', function(req, res){
-    res.send(key'<script type="text/javascript">alert("가입을 완료하였습니다.");document.location.href="/index.html";</script>');
+    res.render('complete', {
+      url: req.url,
+      login: req.session.login,
+      userid: req.session.userID,
+    });
   })
 
 
