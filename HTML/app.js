@@ -5,6 +5,8 @@ const nodemailer = require('nodemailer');
 var bodyParser = require('body-parser');
 var app = express();
 var mysql = require('mysql');
+var session = require('express-session');
+var flash = require('connect-flash');
 
   var client = mysql.createConnection({
       host: "localhost", //서버 로컬 IP
@@ -21,6 +23,12 @@ app.use(expressLayouts);
 //app.use('/user', express.static('uploads'));
 app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(flash());
+app.use(session({
+  secret: 'thisitsecret123',
+  resave: false,
+  saveUninitialized: true
+}));
 
 var router = require('./routes/index.js')(app);
 var mailerRouter = require('./routes/nodemailerTest.js')(app);
