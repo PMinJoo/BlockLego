@@ -109,9 +109,7 @@ module.exports = function (app) {
   //module.exports = router;
 
   router.get('/complete', function(req, res){
-    res.render('complete.html', {
-      url: key,
-    });
+    res.send(key'<script type="text/javascript">alert("가입을 완료하였습니다.");document.location.href="/index.html";</script>');
   })
 
 
