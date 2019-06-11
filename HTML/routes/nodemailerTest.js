@@ -109,7 +109,7 @@ module.exports = function (app) {
   //module.exports = router;
 
   router.get('/complete', function(req, res){
-    res.render('/complete.html', {
+    res.render('complete.html', {
       url: key,
     });
   })
