@@ -110,7 +110,6 @@ module.exports = function (app) {
   router.get('/joincpl', function(req, res){
     res.render('join_cpl', {
       url: req.url,
-      key: key,
     });
   })
 
