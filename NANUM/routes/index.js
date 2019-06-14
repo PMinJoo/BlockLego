@@ -38,6 +38,7 @@ module.exports = function (app) {
     var id = req.body.inputId;
     var pw = req.body.inputPassword;
 
+    console.log("입력한 비밀번호는: " + pw);
     var cipher = crypto.createCipher('aes256', 'pw');
     cipher.update(pw, 'ascii', 'hex');
     var cipher_pwd = cipher.final('hex');

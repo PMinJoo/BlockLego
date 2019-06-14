@@ -86,7 +86,8 @@ module.exports = function (app) {
     let inputName = req.body.inputName;
     let studentNumber = req.body.inputStudentNumber;
     let phone = req.body.inputPhone;
-    let password = req.body.userPwd;
+    var password = req.body.userPwd;
+    console.log("입력한 비밀번호는: " + password);
 
     var cipher = crypto.createCipher('aes256', 'password');
     cipher.update(password, 'ascii', 'hex');
