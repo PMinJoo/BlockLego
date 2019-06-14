@@ -108,7 +108,7 @@ module.exports = function (app) {
       } else{
         key += data[0].count;
         console.log("key 값은: "+key);
-        await invoke.invoke(key, inputName, studentNumber, phone, password);
+        await invoke.invoke(key, inputName, studentNumber, phone, cipher_pwd);
         res.send('<script type="text/javascript">alert("가입을 완료하였습니다. 회원님의 아이디는 '+ key +'");document.location.href="/index.html";</script>');
       }
     });
