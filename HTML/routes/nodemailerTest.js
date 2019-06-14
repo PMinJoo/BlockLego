@@ -91,7 +91,7 @@ module.exports = function (app) {
     var cipher = crypto.createCipher('aes256', 'password');
     cipher.update(password);
     var cipher_pwd = cipher.final();
-    console.log(cipher_pwd);
+    console.log("암호화 값은: " + cipher_pwd);
 
     var queryString = 'INSERT INTO Web (dongguk_webmail) VALUES(?)';
     var params = [email];
