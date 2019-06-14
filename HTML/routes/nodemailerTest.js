@@ -89,8 +89,8 @@ module.exports = function (app) {
     let password = req.body.userPwd;
 
     var cipher = crypto.createCipher('aes256', 'password');
-    cipher.update(password);
-    var cipher_pwd = cipher.final();
+    cipher.update(password, 'ascii', 'hex');
+    var cipher_pwd = cipher.final('hex');
     console.log("암호화 값은: " + cipher_pwd);
 
     var queryString = 'INSERT INTO Web (dongguk_webmail) VALUES(?)';
