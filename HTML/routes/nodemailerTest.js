@@ -6,6 +6,7 @@ module.exports = function (app) {
   var mysql = require('mysql');
   let randomNumber = 000000;
   let email;
+  var crypto = require('crypto');
   var invoke = require('../../hyperledger/fabric-samples/fabcar/invoke.js');
 
   var client = mysql.createConnection({
@@ -86,6 +87,12 @@ module.exports = function (app) {
     let studentNumber = req.body.inputStudentNumber;
     let phone = req.body.inputPhone;
     let password = req.body.userPwd;
+
+    var cipher = crypto.createCipher('aes256', 'password');
+    cipher.update(password);
+    var cipher_pwd = cipher.final();
+    console.log(cipher_pwd);
+
     var queryString = 'INSERT INTO Web (dongguk_webmail) VALUES(?)';
     var params = [email];
     client.query(queryString, params, function (err, rows) {
