@@ -5,6 +5,7 @@ module.exports = function (app) {
   var JSAlert = require("js-alert");
   var url = require('url');
   var dateFormat = require('dateformat');
+  var crypto = require('crypto');
   var query = require('../../hyperledger/fabric-samples/fabcar/query.js');
 
   var connection = mysql.createConnection({
@@ -36,6 +37,12 @@ module.exports = function (app) {
   router.post('/login', async function(req, res){
     var id = req.body.inputId;
     var pw = req.body.inputPassword;
+
+    var cipher = crypto.createCipher('aes256', 'pw');
+    cipher.update(pw, 'ascii', 'hex');
+    var cipher_pwd = cipher.final('hex');
+    console.log("암호화 값은: " + cipher_pwd);
+
     var day=dateFormat(new Date(), "yyyy-mm-dd hh:MM:ss");
     var result = await query.query(id);
     var user_pwd = "";
@@ -53,7 +60,7 @@ module.exports = function (app) {
       if (error2) {
         console.log(error2);
         res.redirect('/');
-      } else if (!data[0] && pw != user_pwd) {
+      } else if (!data[0] && cipher_pwd != user_pwd) {
         res.send('<script type="text/javascript">alert("아이디 혹은 비밀번호를 확인해주세요.");</script>');
           var queryString = 'insert into Monitor (login_id, login_date, login_pf) values (?, ?, ?)'
           var params = [id, day, 0];
@@ -62,7 +69,7 @@ module.exports = function (app) {
                   console.log(err);
               }
           });
-      } else if(!data[0] && pw == user_pwd) {
+      } else if(!data[0] && cipher_pwd == user_pwd) {
         var queryString = 'insert into Monitor (login_id, login_date, login_pf) values (?, ?, ?)'
         var params = [id, day, 1];
         connection.query(queryString, params, function (err, rows) {
