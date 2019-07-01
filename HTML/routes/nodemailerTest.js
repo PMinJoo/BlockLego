@@ -29,8 +29,8 @@ module.exports = function (app) {
           let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: 'blocklego02pj@gmail.com',
-              pass: 'blocklego_pjNodejs0512'
+              user: 'id',
+              pass: 'password'
             }
           });
 
